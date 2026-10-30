@@ -1,0 +1,675 @@
+{
+ "sources": [
+  {
+   "id": "danzer1919",
+   "groups": [
+    "G01"
+   ],
+   "citation": "Danzer CS. The cardiothoracic ratio: an index of cardiac enlargement. Am J Med Sci. 1919;157(4):513-54.",
+   "year": 1919,
+   "url": "https://doi.org/10.1097/00000441-191904000-00007",
+   "type": "paper",
+   "supports": "The original description of the cardiothoracic ratio: maximal transverse cardiac diameter (right plus left border extremes from the midline) divided by maximal inner thoracic width, used as an index of cardiac enlargement.",
+   "verified": true
+  },
+  {
+   "id": "truszkiewicz2021",
+   "groups": [
+    "G01"
+   ],
+   "citation": "Truszkiewicz K, Poręba R, Gać P. Radiological cardiothoracic ratio in evidence-based medicine. J Clin Med. 2021;10(9):2016.",
+   "year": 2021,
+   "url": "https://doi.org/10.3390/jcm10092016",
+   "type": "review",
+   "supports": "A modern review of how CTR is measured from the cardiac border and thoracic width landmarks, its 0.5 cutoff, and its diagnostic and prognostic value.",
+   "verified": true
+  },
+  {
+   "id": "clark2000",
+   "groups": [
+    "G01"
+   ],
+   "citation": "Clark AL, Coats AJ. Unreliability of cardiothoracic ratio as a marker of left ventricular impairment: comparison with radionuclide ventriculography and echocardiography. Postgrad Med J. 2000;76(895):289-91.",
+   "year": 2000,
+   "url": "https://doi.org/10.1136/pmj.76.895.289",
+   "type": "paper",
+   "supports": "Reports the limited reliability of the CTR cutoff against echocardiographic and radionuclide LV function, which frames how precisely the border landmarks need to be placed.",
+   "verified": true
+  },
+  {
+   "id": "collins1972",
+   "groups": [
+    "G02"
+   ],
+   "citation": "Collins JD, Burwell D, Furmanski S, Lorber P, Steckel RJ. Minimal detectable pleural effusions. A roentgen pathology model. Radiology. 1972;105(1):51-3.",
+   "year": 1972,
+   "url": "https://doi.org/10.1148/105.1.51",
+   "type": "paper",
+   "supports": "Establishes the minimal fluid volume needed to blunt the costophrenic angle on upright frontal radiographs, and that a smaller volume is detectable posteriorly on lateral and decubitus views (PubMed lists the first author as 'Colins JD').",
+   "verified": true
+  },
+  {
+   "id": "blackmore1996",
+   "groups": [
+    "G02"
+   ],
+   "citation": "Blackmore CC, Black WC, Dallas RV, Crow HC. Pleural fluid volume estimation: a chest radiograph prediction rule. Acad Radiol. 1996;3(2):103-9.",
+   "year": 1996,
+   "url": "https://doi.org/10.1016/s1076-6332(05)80373-3",
+   "type": "paper",
+   "supports": "Relates the meniscus and costophrenic-sulcus blunting on upright PA and lateral radiographs to pleural fluid volume, giving a radiographic prediction rule.",
+   "verified": true
+  },
+  {
+   "id": "eur16260_1996",
+   "groups": [
+    "G02",
+    "G18",
+    "G20",
+    "G24"
+   ],
+   "url": "https://static.seram.es/wp-content/uploads/2021/09/129_eur16260.pdf",
+   "verified": true,
+   "citation": "Carmichael JHE, Maccia C, Moores BM, Oestmann JW, Schibilla H, Teunen D, Van Tiggelen R, Wall B, editors. European guidelines on quality criteria for diagnostic radiographic images. EUR 16260 EN. Luxembourg: Office for Official Publications of the European Communities; 1996. ISBN 92-827-7284-5.",
+   "year": 1996,
+   "type": "guideline",
+   "supports": "PA chest criteria: inspiration by rib count above the diaphragm (1.1.1), spinous process centred between the medial clavicle ends (1.1.2), scapulae outside the lung fields (1.1.3), sharp trachea/heart borders/costophrenic angles (1.1.6), spine visible through the heart shadow (1.1.8). PDF hosted by SERAM; no official EU-hosted copy found."
+  },
+  {
+   "id": "pineda2007",
+   "groups": [
+    "G03"
+   ],
+   "citation": "Pineda V, Andreu J, Cáceres J, Merino X, Varona D, Domínguez-Oronoz R. Lesions of the cardiophrenic space: findings at cross-sectional imaging. Radiographics. 2007;27(1):19-32.",
+   "year": 2007,
+   "url": "https://doi.org/10.1148/rg.271065089",
+   "type": "review",
+   "supports": "A RadioGraphics review of the anatomy of the cardiophrenic space and its lesions (fat pad, cysts, hernias, nodes, tumors), many of which first present as cardiophrenic-angle opacities on chest radiographs.",
+   "verified": true
+  },
+  {
+   "id": "hansell2008",
+   "groups": [
+    "G03",
+    "G10",
+    "G13",
+    "G17",
+    "G22"
+   ],
+   "url": "https://doi.org/10.1148/radiol.2462070712",
+   "verified": true,
+   "citation": "Hansell DM, Bankier AA, MacMahon H, McLoud TC, Müller NL, Remy J. Fleischner Society: glossary of terms for thoracic imaging. Radiology. 2008;246(3):697-722.",
+   "year": 2008,
+   "type": "glossary",
+   "supports": "Standard definitions of thoracic radiograph terms, including mediastinal shift, volume loss and the airway/mediastinal structures whose displacement is reported."
+  },
+  {
+   "id": "pratt1987",
+   "groups": [
+    "G04"
+   ],
+   "citation": "Pratt PC. Role of conventional chest radiography in diagnosis and exclusion of emphysema. Am J Med. 1987;82(5):998-1006.",
+   "year": 1987,
+   "url": "https://doi.org/10.1016/0002-9343(87)90163-x",
+   "type": "paper",
+   "supports": "Shows that diaphragm flattening and depression (hyperinflation signs) on conventional radiographs correlate with pathologically graded emphysema.",
+   "verified": true
+  },
+  {
+   "id": "reich1985",
+   "groups": [
+    "G04"
+   ],
+   "citation": "Reich SB, Weinshelbaum A, Yee J. Correlation of radiographic measurements and pulmonary function tests in chronic obstructive pulmonary disease. AJR Am J Roentgenol. 1985;144(4):695-9.",
+   "year": 1985,
+   "url": "https://doi.org/10.2214/ajr.144.4.695",
+   "type": "paper",
+   "supports": "Correlates radiographic measurements of diaphragm height and position (relative to lung height) with pulmonary function in COPD.",
+   "verified": true
+  },
+  {
+   "id": "shiraishi2023",
+   "groups": [
+    "G04"
+   ],
+   "citation": "Shiraishi M, Higashimoto Y, Sugiya R, et al. Diaphragm dome height on chest radiography as a predictor of dynamic lung hyperinflation in COPD. ERJ Open Res. 2023;9(3):00079-2023.",
+   "year": 2023,
+   "url": "https://doi.org/10.1183/23120541.00079-2023",
+   "type": "paper",
+   "supports": "A recent study showing that diaphragm dome height measured on a chest radiograph predicts dynamic hyperinflation in COPD.",
+   "verified": true
+  },
+  {
+   "id": "macduff2010",
+   "groups": [
+    "G05"
+   ],
+   "citation": "MacDuff A, Arnold A, Harvey J; BTS Pleural Disease Guideline Group. Management of spontaneous pneumothorax: British Thoracic Society Pleural Disease Guideline 2010. Thorax. 2010;65 Suppl 2:ii18-31.",
+   "year": 2010,
+   "url": "https://doi.org/10.1136/thx.2010.136986",
+   "type": "guideline",
+   "supports": "Defines a 'large' pneumothorax as a visible rim of 2 cm or more between the lung margin and the chest wall at the level of the hilum.",
+   "verified": true
+  },
+  {
+   "id": "baumann2001",
+   "groups": [
+    "G05"
+   ],
+   "citation": "Baumann MH, Strange C, Heffner JE, et al. Management of spontaneous pneumothorax: an American College of Chest Physicians Delphi consensus statement. Chest. 2001;119(2):590-602.",
+   "year": 2001,
+   "url": "https://doi.org/10.1378/chest.119.2.590",
+   "type": "guideline",
+   "supports": "Sizes pneumothorax by the lung-apex-to-thoracic-cupola distance, with 3 cm or more counting as large.",
+   "verified": true
+  },
+  {
+   "id": "collins1995",
+   "groups": [
+    "G05"
+   ],
+   "citation": "Collins CD, Lopez A, Mathie A, Wood V, Jackson JE, Roddie ME. Quantification of pneumothorax size on chest radiographs using interpleural distances: regression analysis based on volume measurements from helical CT. AJR Am J Roentgenol. 1995;165(5):1127-30.",
+   "year": 1995,
+   "url": "https://doi.org/10.2214/ajr.165.5.7572489",
+   "type": "paper",
+   "supports": "Derives pneumothorax volume from interpleural distances measured at the apex and at the lateral lung margin, validated against CT volumes.",
+   "verified": true
+  },
+  {
+   "id": "homer1978",
+   "groups": [
+    "G06"
+   ],
+   "citation": "Homer MJ. The hilar height ratio. Radiology. 1978;129(1):11-6.",
+   "year": 1978,
+   "url": "https://doi.org/10.1148/129.1.11",
+   "type": "paper",
+   "supports": "Defines the hilar height ratio and its normal range on PA radiographs, quantifying the normally higher left hilum and how displacement signals volume loss.",
+   "verified": true
+  },
+  {
+   "id": "homer1979",
+   "groups": [
+    "G06"
+   ],
+   "citation": "Homer MJ. Abnormal left hilar height ratio. AJR Am J Roentgenol. 1979;133(4):723-6.",
+   "year": 1979,
+   "url": "https://doi.org/10.2214/ajr.133.4.723",
+   "type": "paper",
+   "supports": "Shows that an abnormal hilar height ratio indicates pathology such as upper- or lower-lobe volume loss.",
+   "verified": true
+  },
+  {
+   "id": "goodman2015_felson",
+   "groups": [
+    "G06"
+   ],
+   "citation": "Goodman LR. Felson's principles of chest roentgenology: a programmed text. 4th ed. Philadelphia: Elsevier Saunders; 2015. ISBN 978-1-4557-7483-8.",
+   "year": 2015,
+   "url": "https://shop.elsevier.com/books/felsons-principles-of-chest-roentgenology-a-programmed-text/goodman/978-1-4557-7483-8",
+   "type": "textbook",
+   "supports": "The standard teaching text on normal chest radiograph anatomy, including hilar position and the silhouette and interface signs of the mediastinum and heart.",
+   "verified": true
+  },
+  {
+   "id": "gibbs2007",
+   "groups": [
+    "G07",
+    "G10"
+   ],
+   "citation": "Gibbs JM, Chandrasekhar CA, Ferguson EC, Oldham SA. Lines and stripes: where did they go? From conventional radiography to CT. Radiographics. 2007;27(1):33-48.",
+   "year": 2007,
+   "url": "https://doi.org/10.1148/rg.271065073",
+   "type": "review",
+   "supports": "A RadioGraphics review correlating the right paratracheal stripe, junction lines, paraspinal and para-aortic lines and the aortopulmonary interface with CT anatomy, and the pathology that alters them.",
+   "verified": true
+  },
+  {
+   "id": "proto1992",
+   "groups": [
+    "G07"
+   ],
+   "citation": "Proto AV. Conventional chest radiographs: anatomic understanding of newer observations. Radiology. 1992;183(3):593-603.",
+   "year": 1992,
+   "url": "https://doi.org/10.1148/radiology.183.3.1584903",
+   "type": "review",
+   "supports": "Explains the anatomic basis of mediastinal reflections, lines and stripes seen on conventional chest radiographs.",
+   "verified": true
+  },
+  {
+   "id": "proto1987",
+   "groups": [
+    "G07"
+   ],
+   "citation": "Proto AV. Mediastinal anatomy: emphasis on conventional images with anatomic and computed tomographic correlations. J Thorac Imaging. 1987;2(1):1-48.",
+   "year": 1987,
+   "url": "https://pubmed.ncbi.nlm.nih.gov/3612915/",
+   "type": "review",
+   "supports": "A comprehensive account of mediastinal lines and interfaces on conventional radiographs, correlated with anatomy and CT (no DOI in the PubMed record).",
+   "verified": true
+  },
+  {
+   "id": "gundry1983",
+   "groups": [
+    "G08"
+   ],
+   "citation": "Gundry SR, Burney RE, Mackenzie JR, et al. Assessment of mediastinal widening associated with traumatic rupture of the aorta. J Trauma. 1983;23(4):293-9.",
+   "year": 1983,
+   "url": "https://doi.org/10.1097/00005373-198304000-00004",
+   "type": "paper",
+   "supports": "Evaluates the mediastinal width measured between the left and right mediastinal borders as a radiographic predictor of traumatic aortic rupture.",
+   "verified": true
+  },
+  {
+   "id": "woodring1984",
+   "groups": [
+    "G08"
+   ],
+   "citation": "Woodring JH, Loh FK, Kryscio RJ. Mediastinal hemorrhage: an evaluation of radiographic manifestations. Radiology. 1984;151(1):15-21.",
+   "year": 1984,
+   "url": "https://doi.org/10.1148/radiology.151.1.6701306",
+   "type": "paper",
+   "supports": "Assesses how accurately radiographic signs (mediastinal widening, an abnormal aortic contour, paratracheal stripe thickening, tracheal and nasogastric-tube deviation) detect mediastinal hemorrhage.",
+   "verified": true
+  },
+  {
+   "id": "burney1983",
+   "groups": [
+    "G08"
+   ],
+   "citation": "Burney RE, Gundry SR, Mackenzie JR, Whitehouse WM, Wu SC. Comparison of mediastinal width, mediastinal-thoracic and -cardiac ratios, and 'mediastinal widening' in detection of traumatic aortic rupture. Ann Emerg Med. 1983;12(11):668-71.",
+   "year": 1983,
+   "url": "https://doi.org/10.1016/s0196-0644(83)80412-0",
+   "type": "paper",
+   "supports": "Compares absolute mediastinal width with mediastinal-to-chest-width ratios for detecting traumatic aortic rupture.",
+   "verified": true
+  },
+  {
+   "id": "tomita2020",
+   "groups": [
+    "G09"
+   ],
+   "citation": "Tomita Y, Kasai T, Ishiwata S, et al. Aortic knob width as an indicator of atherosclerosis and sleep apnea. J Atheroscler Thromb. 2020;27(6):501-8.",
+   "year": 2020,
+   "url": "https://doi.org/10.5551/jat.50286",
+   "type": "paper",
+   "supports": "Uses aortic knob width measured on the chest radiograph as a marker of vascular remodeling and atherosclerosis.",
+   "verified": true
+  },
+  {
+   "id": "hong2010",
+   "groups": [
+    "G09"
+   ],
+   "citation": "Hong YJ, Jeong MH, Choi YH, et al. Relation of aortic knob calcium on chest X-ray or fluoroscopy to plaque characteristics in patients with diabetes mellitus. Am J Cardiol. 2010;106(1):38-43.",
+   "year": 2010,
+   "url": "https://doi.org/10.1016/j.amjcard.2010.02.011",
+   "type": "paper",
+   "supports": "Links aortic knob calcification on chest radiography to coronary plaque characteristics, supporting the knob as a clinically meaningful landmark.",
+   "verified": true
+  },
+  {
+   "id": "jeon2018",
+   "groups": [
+    "G09"
+   ],
+   "citation": "Jeon WK, Kim MA, Kim HL, et al. Association between aortic knob width and invasively measured aortic pulse pressure. Blood Press Monit. 2018;23(3):121-6.",
+   "year": 2018,
+   "url": "https://doi.org/10.1097/MBP.0000000000000317",
+   "type": "paper",
+   "supports": "Validates radiographic aortic knob width against invasively measured central aortic pulse pressure.",
+   "verified": true
+  },
+  {
+   "id": "chang1962",
+   "groups": [
+    "G11"
+   ],
+   "citation": "Chang CH. The normal roentgenographic measurement of the right descending pulmonary artery in 1,085 cases. Am J Roentgenol Radium Ther Nucl Med. 1962;87:929-35.",
+   "year": 1962,
+   "url": "https://pubmed.ncbi.nlm.nih.gov/13878070/",
+   "type": "paper",
+   "supports": "Establishes normal values for the right descending pulmonary artery width on PA radiographs (upper normal about 16 mm in men, 15 mm in women); no DOI exists in PubMed.",
+   "verified": true
+  },
+  {
+   "id": "matthay1981",
+   "groups": [
+    "G11"
+   ],
+   "citation": "Matthay RA, Schwarz MI, Ellis JH Jr, et al. Pulmonary artery hypertension in chronic obstructive pulmonary disease: determination by chest radiography. Invest Radiol. 1981;16(2):95-100.",
+   "year": 1981,
+   "url": "https://doi.org/10.1097/00004424-198103000-00003",
+   "type": "paper",
+   "supports": "Shows that the right descending pulmonary artery diameter and the hilar thoracic index on chest radiographs predict pulmonary artery hypertension in COPD.",
+   "verified": true
+  },
+  {
+   "id": "miniati2014",
+   "groups": [
+    "G11"
+   ],
+   "citation": "Miniati M, Monti S, Airò E, et al. Accuracy of chest radiography in predicting pulmonary hypertension: a case-control study. Thromb Res. 2014;133(3):345-51.",
+   "year": 2014,
+   "url": "https://doi.org/10.1016/j.thromres.2013.12.019",
+   "type": "paper",
+   "supports": "A modern case-control study of how accurately radiographic pulmonary artery signs (enlarged trunk and descending artery) predict pulmonary hypertension.",
+   "verified": true
+  },
+  {
+   "id": "haskin1982",
+   "groups": [
+    "G12"
+   ],
+   "citation": "Haskin PH, Goodman LR. Normal tracheal bifurcation angle: a reassessment. AJR Am J Roentgenol. 1982;139(5):879-82.",
+   "year": 1982,
+   "url": "https://doi.org/10.2214/ajr.139.5.879",
+   "type": "paper",
+   "supports": "Reassesses the normal range of the tracheal bifurcation angle on chest radiographs, showing wide normal variation.",
+   "verified": true
+  },
+  {
+   "id": "murray1995",
+   "groups": [
+    "G12",
+    "G16"
+   ],
+   "url": "https://doi.org/10.2214/ajr.164.5.7717208",
+   "verified": true,
+   "citation": "Murray JG, Brown AL, Anagnostou EA, Senior R. Widening of the tracheal bifurcation on chest radiographs: value as a sign of left atrial enlargement. AJR Am J Roentgenol. 1995;164(5):1089-92.",
+   "year": 1995,
+   "type": "paper",
+   "supports": "Tests the subcarinal angle (carinal splaying) as a CXR sign of left atrial enlargement."
+  },
+  {
+   "id": "goodman1976",
+   "groups": [
+    "G12",
+    "G14"
+   ],
+   "url": "https://doi.org/10.2214/ajr.127.3.433",
+   "verified": true,
+   "citation": "Goodman LR, Conrardy PA, Laing F, Singer MM. Radiographic evaluation of endotracheal tube position. AJR Am J Roentgenol. 1976;127(3):433-4.",
+   "year": 1976,
+   "type": "paper",
+   "supports": "Original paper that sets the carina (and head/neck position) as the reference for judging ETT tip position on the chest radiograph."
+  },
+  {
+   "id": "roberts2015",
+   "groups": [
+    "G13"
+   ],
+   "citation": "Roberts DJ, Leigh-Smith S, Faris PD, Blackmore C, Ball CG, Robertson HL, et al. Clinical presentation of patients with tension pneumothorax: a systematic review. Ann Surg. 2015;261(6):1068-78.",
+   "year": 2015,
+   "url": "https://doi.org/10.1097/SLA.0000000000001073",
+   "type": "review",
+   "supports": "Systematic review of how tension pneumothorax presents, covering tracheal deviation and mediastinal shift as recognised signs.",
+   "verified": true
+  },
+  {
+   "id": "schuster2000",
+   "groups": [
+    "G14"
+   ],
+   "citation": "Schuster M, Nave H, Piepenbrock S, Pabst R, Panning B. The carina as a landmark in central venous catheter placement. Br J Anaesth. 2000;85(2):192-4.",
+   "year": 2000,
+   "url": "https://doi.org/10.1093/bja/85.2.192",
+   "type": "paper",
+   "supports": "Anatomical study showing the carina lies above the pericardial reflection, so it is a radiographic landmark for keeping a CVC tip out of the right atrium.",
+   "verified": true
+  },
+  {
+   "id": "vesely2003",
+   "groups": [
+    "G14"
+   ],
+   "citation": "Vesely TM. Central venous catheter tip position: a continuing controversy. J Vasc Interv Radiol. 2003;14(5):527-34.",
+   "year": 2003,
+   "url": "https://doi.org/10.1097/01.rvi.0000071097.76348.72",
+   "type": "review",
+   "supports": "Review of guidelines on the best CVC tip position (lower SVC or cavoatrial junction vs right atrium) and how that position is judged on radiographs.",
+   "verified": true
+  },
+  {
+   "id": "baskin2008",
+   "groups": [
+    "G14"
+   ],
+   "citation": "Baskin KM, Jimenez RM, Cahill AM, Jawad AF, Towbin RB. Cavoatrial junction and central venous anatomy: implications for central venous access tip position. J Vasc Interv Radiol. 2008;19(3):359-65.",
+   "year": 2008,
+   "url": "https://doi.org/10.1016/j.jvir.2007.09.005",
+   "type": "paper",
+   "supports": "Relates the cavoatrial junction to radiographic landmarks such as the carina and vertebral bodies to define where a CVC tip should sit.",
+   "verified": true
+  },
+  {
+   "id": "lamont2011",
+   "groups": [
+    "G15"
+   ],
+   "citation": "Lamont T, Beaumont C, Fayaz A, Healey F, Huehns T, Law R, et al. Checking placement of nasogastric feeding tubes in adults (interpretation of x ray images): summary of a safety report from the National Patient Safety Agency. BMJ. 2011;342:d2586.",
+   "year": 2011,
+   "url": "https://doi.org/10.1136/bmj.d2586",
+   "type": "guideline",
+   "supports": "BMJ summary of the 2011 NPSA patient-safety report, setting out the radiographic criteria for confirming NG tube position (oesophageal course, midline, bisecting the carina, crossing the diaphragm, tip below the left hemidiaphragm).",
+   "verified": true
+  },
+  {
+   "id": "metheny2019",
+   "groups": [
+    "G15"
+   ],
+   "citation": "Metheny NA, Krieger MM, Healey F, Meert KL. A review of guidelines to distinguish between gastric and pulmonary placement of nasogastric tubes. Heart Lung. 2019;48(3):226-35.",
+   "year": 2019,
+   "url": "https://doi.org/10.1016/j.hrtlng.2019.01.003",
+   "type": "review",
+   "supports": "Review of international guidelines that names radiographic confirmation of the tube's course and gastric tip as the reference standard for NG tube position.",
+   "verified": true
+  },
+  {
+   "id": "torres2021",
+   "groups": [
+    "G16"
+   ],
+   "citation": "Torres FS, Eifer DA, Sanchez Tijmes F, Nguyen ET, Hanneman K. Diagnostic performance of chest radiography measurements for the assessment of cardiac chamber enlargement. CMAJ. 2021;193(44):E1683-92.",
+   "year": 2021,
+   "url": "https://doi.org/10.1503/cmaj.210083",
+   "type": "paper",
+   "supports": "Measures how accurately standard CXR chamber-enlargement measurements and signs (including cardiothoracic ratio and left atrial/ventricular landmarks) detect enlargement, using cardiac MRI as the reference standard.",
+   "verified": true
+  },
+  {
+   "id": "higgins1978",
+   "groups": [
+    "G16"
+   ],
+   "citation": "Higgins CB, Reinke RT, Jones NE, Broderick T. Left atrial dimension on the frontal thoracic radiograph: a method for assessing left atrial enlargement. AJR Am J Roentgenol. 1978;130(2):251-5.",
+   "year": 1978,
+   "url": "https://doi.org/10.2214/ajr.130.2.251",
+   "type": "paper",
+   "supports": "Original method for measuring left atrial size on the frontal CXR from the double-density right left-atrial border to the left main bronchus.",
+   "verified": true
+  },
+  {
+   "id": "mirjalili2012",
+   "groups": [
+    "G17"
+   ],
+   "citation": "Mirjalili SA, Hale SJ, Buckenham T, Wilson B, Stringer MD. A reappraisal of adult thoracic surface anatomy. Clin Anat. 2012;25(7):827-34.",
+   "year": 2012,
+   "url": "https://doi.org/10.1002/ca.22091",
+   "type": "paper",
+   "supports": "CT study in living adults of the vertebral levels of the jugular notch, sternal angle and xiphisternal joint and their relation to the tracheal bifurcation; it tests the textbook 'sternal angle = T4/5 = carina' rule.",
+   "verified": true
+  },
+  {
+   "id": "marais2023",
+   "groups": [
+    "G18"
+   ],
+   "citation": "Marais J, Venkatakrishna SSB, Calle-Toro JS, Goussard P, Eber E, Andronikou S. Patient rotation chest X-rays and the consequences of misinterpretation in paediatric radiology. Paediatr Respir Rev. 2023;47:41-50.",
+   "year": 2023,
+   "url": "https://doi.org/10.1016/j.prrv.2023.05.003",
+   "type": "review",
+   "supports": "Review of how patient rotation is recognised on CXR (clavicle/spinous-process symmetry and related signs) and the misinterpretations it causes.",
+   "verified": true
+  },
+  {
+   "id": "cobb1948",
+   "groups": [
+    "G19"
+   ],
+   "citation": "Cobb JR. Outline for the study of scoliosis. In: American Academy of Orthopaedic Surgeons Instructional Course Lectures, vol 5. Ann Arbor: J.W. Edwards; 1948. p. 261-75.",
+   "year": 1948,
+   "type": "paper",
+   "supports": "Original description of the Cobb angle, measured between the endplates of the end vertebrae of a curve. Not indexed in PubMed and has no DOI.",
+   "verified": true
+  },
+  {
+   "id": "morrissy1990",
+   "groups": [
+    "G19"
+   ],
+   "citation": "Morrissy RT, Goldsmith GS, Hall EC, Kehl D, Cowie GH. Measurement of the Cobb angle on radiographs of patients who have scoliosis. Evaluation of intrinsic error. J Bone Joint Surg Am. 1990;72(3):320-7.",
+   "year": 1990,
+   "url": "https://pubmed.ncbi.nlm.nih.gov/2312527/",
+   "type": "paper",
+   "supports": "Measures the intra- and interobserver error of endplate-based Cobb angle measurement on radiographs.",
+   "verified": true
+  },
+  {
+   "id": "genant1993",
+   "groups": [
+    "G19"
+   ],
+   "citation": "Genant HK, Wu CY, van Kuijk C, Nevitt MC. Vertebral fracture assessment using a semiquantitative technique. J Bone Miner Res. 1993;8(9):1137-48.",
+   "year": 1993,
+   "url": "https://doi.org/10.1002/jbmr.5650080915",
+   "type": "paper",
+   "supports": "Defines the standard semiquantitative grading of vertebral fractures from loss of anterior, middle or posterior vertebral body height on lateral radiographs.",
+   "verified": true
+  },
+  {
+   "id": "lenchik2004",
+   "groups": [
+    "G19"
+   ],
+   "citation": "Lenchik L, Rogers LF, Delmas PD, Genant HK. Diagnosis of osteoporotic vertebral fractures: importance of recognition and description by radiologists. AJR Am J Roentgenol. 2004;183(4):949-58.",
+   "year": 2004,
+   "url": "https://doi.org/10.2214/ajr.183.4.1830949",
+   "type": "review",
+   "supports": "Review arguing that radiologists under-recognise and under-report osteoporotic vertebral fractures, including those seen incidentally on lateral chest radiographs.",
+   "verified": true
+  },
+  {
+   "id": "li2018",
+   "groups": [
+    "G19"
+   ],
+   "citation": "Li Y, Yan L, Cai S, Wang P, Zhuang H, Yu H. The prevalence and under-diagnosis of vertebral fractures on chest radiograph. BMC Musculoskelet Disord. 2018;19(1):235.",
+   "year": 2018,
+   "url": "https://doi.org/10.1186/s12891-018-2171-y",
+   "type": "paper",
+   "supports": "Shows vertebral fractures are common but largely under-diagnosed on chest radiographs, which supports opportunistic assessment of vertebral height.",
+   "verified": true
+  },
+  {
+   "id": "vassalou2024",
+   "groups": [
+    "G20"
+   ],
+   "citation": "Vassalou EE, Perysinakis I, Klontzas ME, de Bree E, Karantanas AH. Performance of thoracic ultrasonography compared with chest radiography for the detection of rib fractures using computed tomography as a reference standard. Skeletal Radiol. 2024;53(11):2367-76.",
+   "year": 2024,
+   "url": "https://doi.org/10.1007/s00256-024-04658-8",
+   "type": "paper",
+   "supports": "Measures how sensitive the chest radiograph is for rib fractures against CT, so rib-level localisation on CXR is a clinically relevant (and error-prone) task.",
+   "verified": true
+  },
+  {
+   "id": "singleton2019",
+   "groups": [
+    "G20"
+   ],
+   "citation": "Singleton JM, Bilello LA, Canham LS, Levenson RB, Lopez GJ, Tadiri SP, et al. Chest computed tomography imaging utility for radiographically occult rib fractures in elderly fall-injured patients. J Trauma Acute Care Surg. 2019;86(5):838-43.",
+   "year": 2019,
+   "url": "https://doi.org/10.1097/TA.0000000000002208",
+   "type": "paper",
+   "supports": "Documents rib fractures missed on the chest radiograph (radiographically occult) and why they matter clinically.",
+   "verified": true
+  },
+  {
+   "id": "warren2018",
+   "groups": [
+    "G21"
+   ],
+   "citation": "Warren MA, Zhao Z, Koyama T, Bastarache JA, Shaver CM, Semler MW, et al. Severity scoring of lung oedema on the chest radiograph is associated with clinical outcomes in ARDS. Thorax. 2018;73(9):840-6.",
+   "year": 2018,
+   "url": "https://doi.org/10.1136/thoraxjnl-2017-211280",
+   "type": "paper",
+   "supports": "Introduces the RALE score, which grades the extent and density of consolidation per lung quadrant, and shows it is associated with ARDS outcomes.",
+   "verified": true
+  },
+  {
+   "id": "borghesi2020",
+   "groups": [
+    "G21"
+   ],
+   "citation": "Borghesi A, Maroldi R. COVID-19 outbreak in Italy: experimental chest X-ray scoring system for quantifying and monitoring disease progression. Radiol Med. 2020;125(5):509-13.",
+   "year": 2020,
+   "url": "https://doi.org/10.1007/s11547-020-01200-3",
+   "type": "paper",
+   "supports": "Introduces the Brixia score: six lung zones (three per lung, split by lines at the aortic arch and the inferior pulmonary hilar vessels), each scored 0-3.",
+   "verified": true
+  },
+  {
+   "id": "proto1980",
+   "groups": [
+    "G22"
+   ],
+   "citation": "Proto AV, Tocino I. Radiographic manifestations of lobar collapse. Semin Roentgenol. 1980;15(2):117-73.",
+   "year": 1980,
+   "url": "https://doi.org/10.1016/0037-198x(80)90004-8",
+   "type": "review",
+   "supports": "Classic review of lobar collapse signs on the radiograph, centred on fissure displacement and the compensatory shift of hila, mediastinum and diaphragm.",
+   "verified": true
+  },
+  {
+   "id": "miller1985",
+   "groups": [
+    "G23"
+   ],
+   "citation": "Miller WT, Aronchick JM, Epstein DM, Gefter WB. The troublesome nipple shadow. AJR Am J Roentgenol. 1985;145(3):521-3.",
+   "year": 1985,
+   "url": "https://doi.org/10.2214/ajr.145.3.521",
+   "type": "paper",
+   "supports": "Describes nipple shadows that mimic pulmonary nodules on CXR and how to tell them apart, including nipple markers.",
+   "verified": true
+  }
+ ],
+ "relevance": {
+  "G01": "The left and right cardiac border extremes and the inner thoracic width define the cardiothoracic ratio, the standard radiographic index of cardiomegaly (CTR > 0.5 on PA films).",
+  "G02": "Blunting of the costophrenic angles (lateral on the frontal view, posterior and anterior on the lateral view) is the earliest radiographic sign of pleural effusion, and the angles are mandated image-quality criteria.",
+  "G03": "The cardiophrenic angles are where pericardial fat pads, pericardial cysts, Morgagni hernias and enlarged paracardiac nodes appear as masses obscuring the angle.",
+  "G04": "The height of the diaphragm dome and flattening of its contour are the main radiographic markers of inspiratory effort and of hyperinflation or emphysema.",
+  "G05": "The lung apex relative to the cupola, and the lateral lung margin relative to the chest wall, are the landmarks used to estimate pneumothorax size and guide management.",
+  "G06": "The position of the hila (the left normally higher than the right) and their relative height detect volume loss, lobar collapse and hilar masses.",
+  "G07": "Mediastinal lines and stripes (right paratracheal stripe, paraspinal lines, para-aortic line) are air-tissue interfaces whose displacement or thickening reveals mediastinal masses, adenopathy, hematoma or effusion.",
+  "G08": "Mediastinal width and the contours of its borders screen for mediastinal hemorrhage and traumatic aortic injury (widening above about 8 cm) and for mediastinal masses.",
+  "G09": "The width and calcification of the aortic knob (arch summit) are radiographic markers of aortic dilatation or unfolding and of atherosclerosis or arterial stiffness.",
+  "G10": "Convexity or obliteration of the aortopulmonary window (the concave interface between the aortic arch and the pulmonary trunk) is a classic sign of mediastinal adenopathy or a mass.",
+  "G11": "The width of the pulmonary trunk and of the right descending pulmonary artery, together with hilar artery enlargement, are radiographic indicators of pulmonary hypertension.",
+  "G12": "The carina, the main bronchi and the tracheal bifurcation (carinal) angle mark tracheal position and are the ETT-tip reference; widening of the angle is a classic sign of left atrial enlargement or subcarinal mass.",
+  "G13": "Displacement of the trachea from the midline between inlet and carina is a classic CXR sign of mass effect (tension pneumothorax, goitre, large effusion) or of volume loss pulling toward the abnormal side.",
+  "G14": "The carina is the radiographic reference for endotracheal-tube tip depth and a surrogate for the cavoatrial junction, which is the target for a central venous catheter tip, so both are checked on almost every ICU CXR.",
+  "G15": "After nasogastric tube insertion, the CXR must show the tube following the oesophagus in the midline, bisecting the carina, crossing the diaphragm and ending below the left hemidiaphragm in the gastric air bubble; a misplaced tube in the airway is a never event.",
+  "G16": "The right atrial border, left atrial appendage bulge, double-density sign, carinal splaying and LV apex position are the classic frontal-CXR signs of individual cardiac chamber enlargement.",
+  "G17": "The jugular notch, sternal angle and xiphoid are surface and radiographic reference levels: the sternal angle is classically taught at T4/5 and the carina, and these are used for mediastinal levels and device positioning.",
+  "G18": "The medial clavicle ends relative to the spinous processes are the standard check for patient rotation, and the scapulae must be projected outside the lung fields on a technically adequate PA chest film.",
+  "G19": "Vertebral endplate corners define the Cobb angle for scoliosis on the frontal view and the anterior/middle/posterior heights used to grade wedge or compression fractures on the lateral CXR, where incidental fractures are often under-reported.",
+  "G20": "Counting posterior and anterior ribs above the diaphragm is the standard check of inspiratory adequacy, and the rib ends and costal junctions locate rib fractures.",
+  "G21": "Radiographic severity scores divide each lung into fixed zones or quadrants (RALE: quadrants; Brixia: six zones defined by the aortic arch and inferior pulmonary hila), so zone landmarks directly drive scoring.",
+  "G22": "The position and shape of the interlobar fissures, especially displacement of the minor fissure, are the direct signs of lobar volume loss and collapse on the CXR.",
+  "G23": "Nipple and breast shadows are common nodule mimics in the lower zones, so locating them prevents false-positive nodule calls and unnecessary work-up.",
+  "G24": "Scapulae must be projected outside the lung fields on a technically adequate PA chest film; together with rotation (clavicles) and inspiration (ribs) they set the technical-quality rating."
+ }
+}

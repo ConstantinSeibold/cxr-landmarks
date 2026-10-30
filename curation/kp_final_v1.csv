@@ -1,0 +1,112 @@
+ID,group,view,landmark,decision,resident_relevance,attending_group,n_classes,classes,resident_comment
+K001,G01,frontal,left_cardiac_border,keep,5 essential,5 essential,1,heart,
+K002,G01,frontal,right_cardiac_border,keep,5 essential,5 essential,1,heart,
+K003,G01,frontal,ctr_thorax,keep,3 useful,5 essential,1,left lung,lower on opposite rib from K004
+K004,G01,frontal,ctr_thorax,keep,4 important,5 essential,1,right lung,
+K007,G02,frontal,costophrenic_pulmonary,keep,5 essential,5 essential,1,left lung,redefine as visible-lung corner where dome contour meets lateral chest wall (as K299) - point here sits low in the recess
+K009,G02,frontal,costophrenic_pulmonary,keep,5 essential,5 essential,1,right lung,"redefine as K007 = visible-lung corner where dome contour meets lateral chest wall (as K299) - point correct here, but generally not"
+K011,G02,lateral,anterior_costophrenic,keep,3 useful,5 essential,1,diaphragm,more cranial and dorsal under visible costophrenic angle
+K012,G02,lateral,posterior_costophrenic,keep,5 essential,5 essential,1,diaphragm,more cranial and ventral under visible costophrenic angle
+K014,G03,frontal,cardiophrenic_cardiac_left,keep,3 useful,5 essential,1,heart,
+K015,G03,frontal,cardiophrenic_cardiac_right,keep,3 useful,5 essential,1,heart,has to be moved to the right where V. cava and diaphragm meet
+K019,G04,frontal,dome,keep,5 essential,5 essential,2,left hemidiaphragm; right hemidiaphragm,should be more lateral on both sides
+K023,G04,lateral,dome,keep,4 important,5 essential,1,diaphragm,
+K025,G05,frontal,apex,keep,4 important,5 essential,2,right apical zone lung; left apical zone lung,"more medial on the right, more lateral on the left (middle of the apical plateau)"
+K027,G05,frontal,lateral_margin,keep,4 important,5 essential,1,left lung,Redefine as lateral lung edge (costal pleura) at hilar level; avoids the costophrenic recess
+K029,G05,frontal,lateral_margin,keep,4 important,5 essential,1,right lung,"Redefine as lateral lung edge (costal pleura) at hilar level, as K027; avoids the costophrenic recess"
+K030,G06,frontal,hilum,keep,4 important,5 essential,1,left lung,define as left hilar point where superior pulmonary vein crosses the descending PA - the overlap centroid rn sits level with the right one
+K031,G06,frontal,hilum,keep,4 important,5 essential,1,right lung,define as right hilar point where superior pulmonary vein crosses the interlobar artery
+K041,G07,frontal,right_tracheobronchial_angle,keep,3 useful,5 essential,1,trachea,define as right tracheobronchial angle (equals azygos arch level)
+K043,G08,frontal,mw_right,keep,4 important,5 essential,1,upper mediastinum,"redefine as right MW endpoint = right mediastinal edge (SVC) at aortic-knob level, not ascending aorta - K051 merges here"
+K053,G08,lateral,retrosternal_anterior,keep,3 useful,5 essential,1,anterior mediastinum,redefine: posterior sternal surface 3 cm below the sternal angle (retrosternal space); now projects onto the anterior lower sternum
+K056,G08,lateral,retrosternal_posterior,keep,3 useful,5 essential,1,ascending aorta,"redefine: ant. ascending aortic wall 3 cm below the sternal angle (posterior end of retrosternal space), paired with K053"
+K073,G09,frontal,knob,keep,4 important,5 essential,1,aortic arch,K050 and K072 merge here
+K074,G09,frontal,summit,keep,3 useful,5 essential,1,aortic arch,"instead define as ""top of the aortic knob"" = highest lung-bordered point of the distal arch (so that mask summit lies under the great vessels)"
+K078,G10,frontal,ap_window_aortic,keep,3 useful,5 essential,1,aortic arch,define AP window as deepest point of the left mediastinal concavity between aortic knob and PA segment; K079 merges her e
+K081,G11,frontal,pa_segment,keep,4 important,5 essential,1,pulmonary trunc,define as apex of the pa segment convexity of the left mediastinal contour; no marker visible on this DRR
+K083,G12,frontal,carina,keep,5 essential,5 essential,1,tracheal bifurcation,define carina = apex of the notch between the main bronchi aka top of the subcarinal contour
+K084,G12,frontal,left_main_bronchus,keep,3 useful,5 essential,1,tracheal bifurcation,"define as midpoint of the left main bronchus axis, because limb tip is arbitrary - also marker in the picture is not at limb tip (something is probably wrong with how it is calculated)"
+K085,G12,frontal,right_main_bronchus,keep,3 useful,5 essential,1,tracheal bifurcation,"define as midpoint of the right main bronchus axis, because limb tip is arbitrary - also marker in the picture is not at limb tip (something is probably wrong with how it is calculated)"
+K089,G13,frontal,clavicular_level,keep,4 important,5 essential,1,trachea,"redefine tracheal midpoint at the level of the medial clavicle ends, because the 0% end would depend on the mask cut"
+K094,G14,frontal,ivc_ra_caval,keep,3 useful,5 essential,1,inferior vena cava,"redefine ""inferior cavoatrial junction"" as cranial end of the IVC at its entry into the RA (centre), not simply the first mask overlap"
+K098,G15,frontal,gej_esophageal,keep,3 useful,5 essential,1,esophagus,"Canonical GE junction (from K101 merge), redefine as distal end of the oesophagus at the cardia, left of the spine at the hiatus (old rule was ambiguous)"
+K100,G15,frontal,gastric_fundus_apex,keep,3 useful,5 essential,1,stomach,"rename ""gastric fundus apex"" and redfine as highest stomach point under the left hemidiaphragm (top of the gas bubble on erect films)"
+K104,G15,lateral,gej_esophageal,keep,3 useful,5 essential,1,esophagus,"redefine as distal end of the oesphagus at the cardia (points now sits higher, where the gastric roof first overlaps it)"
+K106,G15,lateral,gastric_fundus_apex,keep,3 useful,5 essential,1,stomach,"rename to ""gastric fundus apex"" similar to K100"
+K107,G16,frontal,apex,keep,3 useful,5 essential,1,heart,"redefine ""cardiac apex"" as ""inferolateral tip of the left heart contour above the left dome"", not the lowest mask point"
+K108,G16,frontal,waist_cardiac,keep,3 useful,5 essential,1,heart,"rename ""cardiac waist"" to ""deepest point of the concave left cardiomediastinal between aortic knob and LV contour"", needs the heart-plus-vessels silhouette"
+K110,G16,frontal,double_density,keep,4 important,5 essential,1,heart atrium left,"redefine ""double density"" as rightmost point of the left atrium (Higgins endpoint), merge M04"
+K111,G16,frontal,la_appendage,keep,3 useful,5 essential,1,heart atrium left,rename/write out as left atrial appendage (third mogul) and redefine as left heart border point between pulmonary trunk and LV contour
+K118,G16,lateral,anterior_border,keep,3 useful,5 essential,1,heart,note for K063: middle mediastinum anterior border probably is the compartment copy of this point
+K120,G16,lateral,posterior_border,keep,3 useful,5 essential,1,heart,"idea: add Hoffmann Rigler point (posterior LV border, 2 cm above the IVC crossing) as a separate landmark"
+K129,G17,lateral,jugular_notch,keep,3 useful,5 essential,1,sternum,
+K130,G17,lateral,sternal_angle,keep,3 useful,5 essential,1,sternum,
+K132,G18,frontal,acromioclavicular_clavicular,keep,3 useful,5 essential,2,clavicle left; clavicle right,"right point is outside of the DRR, left point correct. Generally this is useful if CXR (aka source CT) has full view of clavicular"
+K134,G18,frontal,sternoclavicular_clavicular,keep,5 essential,5 essential,2,clavicle left; clavicle right,canonical for sc joint
+K156,G19,frontal,inferior_left,keep,3 useful,5 essential,2,vertebrae L1; vertebrae L2,"redefine as ""inferolateral body corner, left"" (lateral end of the inferior endplate); L1/L2 only"
+K157,G19,frontal,inferior_right,keep,3 useful,5 essential,2,vertebrae L1; vertebrae L2,"redefine as ""inferolateral body corner, right"" (lateral end of the inferior endplate); L1/L2 only"
+K158,G19,frontal,superior_left,keep,3 useful,5 essential,2,vertebrae L1; vertebrae L2,"redefine as ""superolateral body corner, left"" (lateral end of the superior endplate); L1/L2 only"
+K159,G19,frontal,superior_right,keep,3 useful,5 essential,2,vertebrae L1; vertebrae L2,"redefine as ""superolateral body corner, right"" (lateral end of the superior endplate); L1/L2 only"
+K165,G19,frontal,inferior_left,keep,3 useful,5 essential,12,vertebrae T1; vertebrae T2; vertebrae T3; vertebrae T4; vertebrae T5; vertebrae T6; vertebrae T7; vertebrae T8; vertebrae T9; vertebrae T10; vertebrae T11; vertebrae T12,"redefine as ""inferolateral body corner, left"" (lateral end of the inferior endplate);"
+K166,G19,frontal,inferior_right,keep,3 useful,5 essential,12,vertebrae T1; vertebrae T2; vertebrae T3; vertebrae T4; vertebrae T5; vertebrae T6; vertebrae T7; vertebrae T8; vertebrae T9; vertebrae T10; vertebrae T11; vertebrae T12,"redefine as ""inferolateral body corner, right"" (lateral end of the inferior endplate); 
+"
+K167,G19,frontal,superior_left,keep,3 useful,5 essential,12,vertebrae T1; vertebrae T2; vertebrae T3; vertebrae T4; vertebrae T5; vertebrae T6; vertebrae T7; vertebrae T8; vertebrae T9; vertebrae T10; vertebrae T11; vertebrae T12,"redefine as ""superolateral body corner, left"" (lateral end of the superior endplate);"
+K168,G19,frontal,superior_right,keep,3 useful,5 essential,12,vertebrae T1; vertebrae T2; vertebrae T3; vertebrae T4; vertebrae T5; vertebrae T6; vertebrae T7; vertebrae T8; vertebrae T9; vertebrae T10; vertebrae T11; vertebrae T12,"redefine as ""superolateral body corner, right"" (lateral end of the superior endplate); "
+K189,G19,lateral,antero_inferior,keep,3 useful,5 essential,2,vertebrae L1; vertebrae L2,"redefine as ""anteroinferior body corner"", where anterior cortex meets inferior endplate. L1 only (L2 if in field)"
+K190,G19,lateral,antero_superior,keep,3 useful,5 essential,2,vertebrae L1; vertebrae L2,"redefine as ""anterosuperior body corner"", where anterior cortex meets superior endplate; L1 only (L2 if in field)"
+K192,G19,lateral,postero_inferior,keep,3 useful,5 essential,2,vertebrae L1; vertebrae L2,"redefine as ""posteroinferior body corner"", where posterior cortex meets inferior endplate; L1  only (L2 if in field)"
+K193,G19,lateral,postero_superior,keep,3 useful,5 essential,2,vertebrae L1; vertebrae L2,"redefine as ""posterosuperior body corner"", where posterior cortex meets superior endplate; L1 only (L2 if in field)"
+K195,G19,lateral,antero_inferior,keep,4 important,5 essential,12,vertebrae T1; vertebrae T2; vertebrae T3; vertebrae T4; vertebrae T5; vertebrae T6; vertebrae T7; vertebrae T8; vertebrae T9; vertebrae T10; vertebrae T11; vertebrae T12,"redefine as ""anteroinferior body corner"", where anterior cortex meets inferior endplate"
+K196,G19,lateral,antero_superior,keep,4 important,5 essential,12,vertebrae T1; vertebrae T2; vertebrae T3; vertebrae T4; vertebrae T5; vertebrae T6; vertebrae T7; vertebrae T8; vertebrae T9; vertebrae T10; vertebrae T11; vertebrae T12,"redefine as ""anterosuperior body corner"", where anterior cortex meets superior endplate"
+K198,G19,lateral,postero_inferior,keep,4 important,5 essential,12,vertebrae T1; vertebrae T2; vertebrae T3; vertebrae T4; vertebrae T5; vertebrae T6; vertebrae T7; vertebrae T8; vertebrae T9; vertebrae T10; vertebrae T11; vertebrae T12,"redefine as ""posteroinferior body corner"", where posterior cortex meets inferior endplate - right now the point sits too high, at the notch"
+K199,G19,lateral,postero_superior,keep,4 important,5 essential,12,vertebrae T1; vertebrae T2; vertebrae T3; vertebrae T4; vertebrae T5; vertebrae T6; vertebrae T7; vertebrae T8; vertebrae T9; vertebrae T10; vertebrae T11; vertebrae T12,"redefine as ""posterosuperior body corner"", where posterior cortex meets superior endplate"
+K201,G20,frontal,anterior_end,keep,3 useful,5 essential,20,anterior 10th rib right; anterior 10th rib left; anterior 9th rib right; anterior 9th rib left; anterior 8th rib right; anterior 8th rib left; anterior 7th rib right; anterior 7th rib left; anterior 6th rib right; anterior 6th rib left; anterior 5th rib right; anterior 5th rib left; anterior 4th rib right; anterior 4th rib left; anterior 3rd rib right; anterior 3rd rib left; anterior 2nd rib right; anterior 2nd rib left; anterior 1st rib right; anterior 1st rib left,"rename either to costochondral junction (medically more preicse) or anterior end of bony rib to prevent mixing up with posterior rib half. Also remove union rib classes from covers, because each rib has its own landmark (left vs right). This landmark is also not relevant for costae fluctuantes (11 - 12) because they do not have an anterior part."
+K206,G20,frontal,rib_head,keep,3 useful,5 essential,24,posterior 12th rib right; posterior 12th rib left; posterior 11th rib right; posterior 11th rib left; posterior 10th rib right; posterior 10th rib left; posterior 9th rib right; posterior 9th rib left; posterior 8th rib right; posterior 8th rib left; posterior 7th rib right; posterior 7th rib left; posterior 6th rib right; posterior 6th rib left; posterior 5th rib right; posterior 5th rib left; posterior 4th rib right; posterior 4th rib left; posterior 3rd rib right; posterior 3rd rib left; posterior 2nd rib right; posterior 2nd rib left; posterior 1st rib right; posterior 1st rib left,"Rename to ""rib head"" or ""costovertebral joint)"" and use new rule:  most medial posterior-rib point. This old rule might stop at the transverse process, because it also has a joint (articulatio costotransversaria). "
+K220,G21,frontal,center,keep (attending override),2 marginal,5 essential,2,right apical zone lung; left apical zone lung,
+K221,G21,frontal,center,keep (attending override),2 marginal,5 essential,2,right lung base; left lung base,
+K222,G21,frontal,center,keep (attending override),2 marginal,5 essential,2,right mid zone lung; left mid zone lung,
+K223,G21,frontal,center,keep (attending override),2 marginal,5 essential,2,right upper zone lung; left upper zone lung,
+K224,G21,lateral,center,keep (attending override),1 not relevant,5 essential,3,apical zone lung; right apical zone lung; left apical zone lung,
+K225,G21,lateral,center,keep (attending override),1 not relevant,5 essential,3,lung base; right lung base; left lung base,
+K226,G21,lateral,center,keep (attending override),1 not relevant,5 essential,3,mid zone lung; right mid zone lung; left mid zone lung,
+K227,G21,lateral,center,keep (attending override),1 not relevant,5 essential,3,upper zone lung; right upper zone lung; left upper zone lung,
+K231,G22,frontal,minor_fissure,keep,4 important,5 essential,1,lung middle lobe right,define the minor fissure midpoint as midpoint of upper border of the middle lobe (between chest wall and hilum)
+K243,G24,frontal,inferior_angle,keep,3 useful,5 essential,2,scapula left; scapula right,
+K245,G25,frontal,cl_0,keep (attending override),1 not relevant,5 essential,1,aorta,
+K246,G25,frontal,cl_1,keep (attending override),1 not relevant,5 essential,1,aorta,
+K247,G25,frontal,cl_2,keep (attending override),1 not relevant,5 essential,1,aorta,
+K248,G25,frontal,cl_3,keep (attending override),1 not relevant,5 essential,1,aorta,
+K250,G25,frontal,cl_0,keep (attending override),1 not relevant,5 essential,1,ascending aorta,
+K251,G25,frontal,cl_1,keep (attending override),1 not relevant,5 essential,1,ascending aorta,
+K252,G25,frontal,cl_2,keep (attending override),1 not relevant,5 essential,1,ascending aorta,
+K253,G25,frontal,cl_0,keep (attending override),1 not relevant,5 essential,1,descending aorta,
+K254,G25,frontal,cl_1,keep (attending override),1 not relevant,5 essential,1,descending aorta,
+K255,G25,frontal,cl_2,keep (attending override),1 not relevant,5 essential,1,descending aorta,
+K256,G25,frontal,cl_3,keep (attending override),1 not relevant,5 essential,1,descending aorta,
+K258,G25,lateral,cl_1,keep (attending override),1 not relevant,5 essential,1,aorta,
+K259,G25,lateral,cl_2,keep (attending override),1 not relevant,5 essential,1,aorta,
+K260,G25,lateral,cl_3,keep (attending override),1 not relevant,5 essential,1,aorta,
+K262,G25,lateral,cl_0,keep (attending override),1 not relevant,5 essential,1,ascending aorta,
+K263,G25,lateral,cl_1,keep (attending override),1 not relevant,5 essential,1,ascending aorta,
+K264,G25,lateral,cl_2,keep (attending override),1 not relevant,5 essential,1,ascending aorta,
+K265,G25,lateral,cl_0,keep (attending override),1 not relevant,5 essential,1,descending aorta,
+K266,G25,lateral,cl_1,keep (attending override),1 not relevant,5 essential,1,descending aorta,
+K267,G25,lateral,cl_2,keep (attending override),1 not relevant,5 essential,1,descending aorta,
+K268,G25,lateral,cl_3,keep (attending override),1 not relevant,5 essential,1,descending aorta,
+K269,G26,frontal,center,keep (attending override),1 not relevant,5 essential,1,duodenum,
+K270,G26,frontal,center,keep (attending override),1 not relevant,5 essential,2,kidney left; kidney right,
+K271,G26,frontal,center,keep (attending override),1 not relevant,5 essential,1,liver,
+K272,G26,frontal,center,keep (attending override),1 not relevant,5 essential,1,pancreas,
+K273,G26,frontal,center,keep (attending override),1 not relevant,5 essential,1,small bowel,
+K274,G26,frontal,center,keep (attending override),1 not relevant,5 essential,1,stomach,
+K275,G26,lateral,center,keep (attending override),1 not relevant,5 essential,1,duodenum,
+K276,G26,lateral,center,keep (attending override),1 not relevant,5 essential,1,liver,
+K277,G26,lateral,center,keep (attending override),1 not relevant,5 essential,1,pancreas,
+K278,G26,lateral,center,keep (attending override),1 not relevant,5 essential,1,small bowel,
+K279,G26,lateral,center,keep (attending override),1 not relevant,5 essential,1,stomach,
+K074+L,G09,lateral,summit,view extension of K074,3 useful,5 essential,1,aortic arch,
+K094+L,G14,lateral,ivc_ra_caval,view extension of K094,3 useful,5 essential,1,inferior vena cava,
+K107+L,G16,lateral,apex,view extension of K107,3 useful,5 essential,1,heart,
+K025+L,G05,lateral,apex,view extension of K025,4 important,5 essential,1,apical zone lung,
+K129+F,G17,frontal,jugular_notch,view extension of K129,3 useful,5 essential,1,sternum,
+added,,lateral,hoffman_rigler,resident addition (comment on K120),,,1,heart,

@@ -1,0 +1,54 @@
+ID,landmark,resident comment (short),v1 rule,status
+K003,ctr_thorax (left lung),lower; on the same rib as K004,inner left thoracic margin where the same-numbered posterior rib as at K004 crosses the left lung edge,implemented
+K007/K009,costophrenic angle (frontal),visible-lung corner where dome meets lateral wall,infero-lateral corner of the lung clipped at the diaphragm's superior contour,implemented
+K011,anterior costophrenic (lateral),more cranial and dorsal,anterior end of the diaphragm contour under the visible lung (lung within 1 cm above),implemented
+K012,posterior costophrenic (lateral),more cranial and ventral,posterior end of the diaphragm contour under the visible lung,implemented - moves little; re-check in round 2
+K015,cardiophrenic cardiac right,move right to where IVC and diaphragm meet,walk down the right heart+IVC silhouette edge until it meets the right hemidiaphragm contour,implemented
+K019,hemidiaphragm dome (frontal),more lateral on both sides,highest ridge point lateral to the cardiac border (heart above the diaphragm only),implemented
+K025,apex (apical zone),middle of the apical plateau,median column of pixels within 4% of the top row,implemented
+K027/K029,lateral lung margin,lateral lung edge at hilar level,lateral-most lung pixel at the row of the hilar point,implemented
+K030/K031,hilum,SPV crossing the descending / interlobar artery,lateral-most pulmonary-artery point in its upper half within 2 cm of the mediastinum,proxy (pulmonary veins not segmented)
+K041,right paratracheal bottom -> right tracheobronchial angle,right tracheobronchial angle (azygos level),deepest inward point of the right trachea+bronchus contour (moved to the trachea instance),implemented
+K043,right mediastinal point -> mw_right,right MW endpoint at aortic-knob level,right edge of the upper mediastinum at the knob row (moved to the upper-mediastinum instance),proxy (SVC not segmented)
+K053,anterior mediastinum anterior border -> retrosternal_anterior,posterior sternal surface 3 cm below the sternal angle,as asked; 3 cm from a per-image scale (thoracic level pitch = 2.5 cm),implemented (scale estimated)
+K056,ascending aorta anterior border -> retrosternal_posterior,anterior aortic wall 3 cm below the sternal angle,as asked; same row as K053,implemented (scale estimated)
+K074,aortic arch summit,highest lung-bordered point of the distal arch,highest point of the lateral 40% of the arch,implemented
+K078,AP window,deepest point of left contour between knob and PA,deepest point under the chord knob -> PA level on the left cardiomediastinal contour,implemented
+K081,PA segment,apex of PA convexity on left contour,left contour point at the PA trunk's lateral-edge level,proxy (heart mask covers the PA region; no separate convexity)
+K083,carina,apex of the subcarinal notch,top of the notch region (convex hull minus bifurcation mask),implemented
+K084/K085,main bronchi,midpoint of the bronchus axis,half arc length along the limb centerline from the carina,implemented
+K089,trachea inlet -> clavicular_level,tracheal midpoint at medial clavicle ends,trachea mid-width at the mean row of the medial clavicle ends,implemented
+K094,IVC-RA junction,cranial end of the IVC,top of the IVC centerline,implemented
+K098/K104,GE junction,distal end of the oesophagus at the cardia,bottom of the oesophagus centerline,implemented
+K100/K106,gastric bubble -> gastric_fundus_apex,highest stomach point under the left hemidiaphragm,topmost stomach pixel below the left dome (left of midline); lateral: topmost,implemented
+K107,cardiac apex,inferolateral tip of left heart contour above the left dome,infero-lateral heart pixel above the left hemidiaphragm contour,implemented
+K108,cardiac waist,deepest point of the concave left contour knob -> LV,deepest point under the chord knob -> LV border,implemented
+K110,LA double density,rightmost point of the left atrium,patient-right-most LA pixel,implemented (was not derivable)
+K111,LA appendage,left heart border between PA and LV,left contour point at the LA's lateral-edge level (clipped to the PA-LV span),proxy (no separate mogul in the heart mask)
+K132,acromioclavicular,right point outside the DRR,points on the image border are set invisible (v=0) for all landmarks,implemented
+K156-K199,vertebral body corners,lateral / anterior / posterior end of the endplate; L1-L2 only,normalised diagonal extreme inside the isolated body; L3-L5 removed,implemented
+K201,anterior rib tip -> anterior_end,rename; no union classes; not ribs 11-12,medial end of the anterior rib; L/R ribs 1-10 only,implemented
+K206,costovertebral -> rib_head,most medial posterior-rib point,medial-most pixel of the posterior rib; L/R ribs only,implemented
+K231,minor fissure,midpoint of the middle lobe's upper border,middle column of the middle lobe's superior border,implemented
+K120 (comment),hoffman_rigler (lateral heart) - NEW,posterior LV border 2 cm above the IVC crossing,posterior heart border 2 cm above the top of the IVC (per-image scale),added
+K074+L,aortic arch summit -> lateral (view extension),relevant on both views (user request),middle of the arch's top plateau (old lateral rule = raw top point was rated 1),extended - confirm in round 2
+K094+L,IVC-RA junction -> lateral (view extension),relevant on both views,cranial end of the IVC centerline (as frontal),extended - confirm in round 2
+K107+L,cardiac apex -> lateral (view extension),relevant on both views,antero-inferior tip of the heart above the diaphragm,extended - confirm in round 2
+K025+L,lung apex -> lateral (view extension),relevant on both views,middle of the apical plateau of the (superimposed) apical zone,extended - confirm in round 2
+K129+F,jugular notch -> frontal (view extension),relevant on both views,top of the sternum (manubrium); residents had rated the frontal version 2,extended - confirm in round 2
+K007/K009+limbs,costophrenic angle limbs (frontal; NEW assistive),angle needs vertex + two limbs,points 2 cm from the vertex along the visible-lung outline: up the chest wall and along the dome,added (required for the angle; independent of ratings)
+K011/K012+limbs,anterior / posterior sulcus limbs (lateral; NEW assistive),angle needs vertex + two limbs,points 2 cm from the vertex along the visible-lung outline: chest wall and diaphragm,added (required for the angle)
+K014/K015+limbs,cardiophrenic angle limbs (frontal; NEW assistive),angle needs vertex + two limbs,cardiac border 2 cm above the vertex; hemidiaphragm contour 2 cm lateral of the vertex,added (required for the angle)
+K007/K009/K014/K015 (angles),costophrenic + cardiophrenic vertices and limbs,heart and lung masks extend below the diaphragm (CT projection),all angle trios now on the visible ('less obstructed') lung outline: CP = infero-lateral corner; cardiophrenic = infero-medial corner; limbs 2 cm along that outline,revised after visual review
+K011/K012 (angles),lateral sulcus vertices and limbs,same,antero- / postero-inferior corner of the visible lung; limbs 2 cm along its outline,revised after visual review
+K083+limbs,subcarinal angle limbs (frontal; NEW assistive),carinal splaying is measured along the inferior bronchial walls,points 2 cm from the carina along the inferior walls of both main bronchi (median 91 deg on PAXRay++ val vs 144 deg when measured to the bronchus midpoints),added (required for the angle)
+K011+SD,sternodiaphragmatic angle (lateral; NEW assistive),hyperinflation sign (>=90 deg),vertex = most anterior point of the (1-cm smoothed) diaphragm contour under the visible lung and behind the sternum; limbs = posterior sternal surface 3 cm above and diaphragm contour 3 cm behind (median 73 deg on val),added (required for the angle)
+K206+slope,rib slope (frontal; NEW assistive),horizontal posterior ribs = hyperinflation,point 3 cm along each posterior rib's centerline from the rib head (all L/R posterior ribs),added (required for the angle)
+K130+MS,manubriosternal angle (lateral; NEW assistive),pectus deformity / sternal fracture,sternal-centerline points 2 cm above and 3 cm below the sternal angle (median 164 deg on val),added (required for the angle)
+K089+axis,tracheal axis (frontal; NEW assistive),tracheal deviation vs. the spinal axis,trachea mid-width at 25% of its height and 15% above the carina (median 4 deg from vertical on val),added (required for the measurement)
+K030/K031 (review),hilum,"sanity check: left hilum above right in only 66%","lateral edge of the main PA trunk (largest component, <=3 cm from the mediastinum) at the row of the ipsilateral main-bronchus midpoint (right: 1 cm lower) -> left higher in 87%","revised after val sanity check (offset partly by construction)"
+K073 (review),aortic knob,"sanity check: knob below AP window in 4% (arch mask inside the silhouette)","most lateral point of the left mediastinal outline within 3 cm below the arch summit where the arch forms the outline; else first outward bulge -> 3.6%","revised after val sanity check"
+K003 (review),ctr_thorax left,"rib matching sometimes far off (asymmetric rib projection); thorax point inside the heart border in 3.7%","fallback to the left dome level if > 2.5 cm from the right CTR row; never inside the cardiac border (else widest inner thoracic width) -> 0.4%","revised after val sanity check"
+K100 (review),gastric fundus apex,"apex at the cardia next to the GEJ in 6.8%","topmost stomach point below the left dome and >= 1.5 cm lateral of the GEJ -> 0.7%","revised after val sanity check"
+K053/K056 (review),retrosternal pair,"pair not on one row in 12.7% (ascending aorta mask starts below the target row)","both points on one row: 3 cm below the sternal angle clamped into the ascending aorta's extent -> 0.2%","revised after val sanity check"
+data (review),"side labels: clavicle, hemidiaphragm, less obstructed lung","PAXRay++ side names swapped (hemidiaphragm / visible lung 100%, clavicle 59% of frontals)","frontal: reassign left/right by bbox centre (patient-left = image-right; vs. spine if partner missing) in export_keypoints.relabel_sides -> 0% swapped; ctr_thorax now uses the true right dome (CTR R 0.9% -> 0.1%)","revised after val sanity check"

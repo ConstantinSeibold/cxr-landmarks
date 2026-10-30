@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cxrlandmarks"
+version = "1.0.0"
+description = "Semantic anatomical landmarks for chest radiographs: definitions, silver-label rules, and a joint mask + landmark model"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Constantin Seibold"}]
+requires-python = ">=3.10"
+dependencies = [
+  "numpy",
+  "scipy",
+  "opencv-python-headless",
+  "pycocotools",
+  "pillow",
+  "scikit-image",
+  "torch>=2.1",
+  "transformers>=4.40",
+  "huggingface_hub",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+cxrlm-make-labels = "cxrlandmarks.rules.export:main"
+cxrlm-train = "cxrlandmarks.train:main"
+cxrlm-predict = "cxrlandmarks.predict:main"
+cxrlm-evaluate = "cxrlandmarks.eval.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+cxrlandmarks = ["vocab/*.json", "vocab/*.csv"]

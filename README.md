@@ -1,0 +1,111 @@
+# cxr-landmarks
+
+Semantic anatomical landmarks for chest radiographs: a clinically curated landmark vocabulary, the
+geometric rules that turn anatomy masks into landmark labels, and a joint mask + landmark model.
+
+Code, definitions and weights for the ISBI 2026 paper *Semantic landmark detection in chest
+radiographs* (Seibold, Havemann, Vinu, Fink).
+
+> **Research use only.** The model is not a medical device and must not be used for clinical decisions.
+
+## What is in this repository
+
+| | |
+|---|---|
+| **Landmark vocabulary** (`src/cxrlandmarks/vocab/`) | 132 landmark definitions on the 177 PAXRay++ structures, curated by two reviewers with a medical background and a board-certified radiologist; 311 view-specific class–landmark pairs (203 frontal, 108 lateral), at most 13 per structure. Human-readable tables: `landmarks.csv` (definitions, rules, review outcome, literature), `groups.csv` (clinical groups), `references.csv` (53 sources). |
+| **Landmark rules** (`src/cxrlandmarks/rules/`) | The geometric rules (extreme, contact, ridge/centerline and centroid points on anatomy masks) that produce the silver labels from PAXRay++ masks. This is the exact version used for the paper; regenerating the test and val splits reproduces the paper's label files byte for byte. |
+| **Joint dense model** (`src/cxrlandmarks/model.py`) | RAD-DINO ViT-B/14 encoder shared by a landmark-heatmap decoder (one channel per class–landmark pair) and a mask decoder (one channel per structure). |
+| **Training and evaluation** | Standalone training pipeline (no detectron2) and the metrics of the paper (macro OKS-AP, PCK@0.1, COCO mask AP, paired bootstrap CIs over images). |
+
+## Installation
+
+```bash
+git clone https://github.com/<org>/cxr-landmarks && cd cxr-landmarks
+pip install -e .
+```
+Python ≥ 3.10, PyTorch ≥ 2.1. The RAD-DINO encoder is downloaded from the Hugging Face Hub (`microsoft/rad-dino`).
+
+## Predicting landmarks
+
+```python
+from cxrlandmarks.predict import LandmarkPredictor
+
+predictor = LandmarkPredictor.from_pretrained()          # downloads the weights
+out = predictor.predict("chest_xray.png", view="frontal")  # or view="lateral"
+
+for lm in out["landmarks"][:3]:
+    print(lm["class"], lm["landmark"], lm["x"], lm["y"], lm["confidence"])
+# out["structures"]: one mask (COCO RLE) per detected structure, with a score
+```
+
+From the command line (one JSON per image):
+```bash
+cxrlm-predict --images cxr1.png cxr2.png --view frontal --out-dir predictions/
+```
+
+The view must be given (`frontal` or `lateral`); `--view auto` reads it from the file name
+(PAXRay++ convention: lateral images contain "lateral"). Images of any size are resized so that
+the shortest edge is 512 px (longest at most 1024 px); coordinates are returned in the input
+image's pixels.
+
+## Landmark definitions
+
+Each landmark is a rule on one or two anatomy masks, e.g. the extreme point of the heart mask in
+a direction, the contact point of two structures, or a point on a structure's centerline. The
+vocabulary file `final_vocab_v1.json` lists every (view, structure, landmark) with its source
+definition, clinical group and review decision; `landmarks.csv` is the readable version. The
+curation records (reviewer ratings, rule revisions) are in `curation/`.
+
+## Silver labels from PAXRay++
+
+The rules need anatomy masks. PAXRay++ (<!-- link to the PAXRay++ download -->) provides
+masks of 177 structures projected from CT, on which the rules yield landmarks for every image:
+
+```bash
+cxrlm-make-labels --paxray-root /data/paxraypp            # writes annotations/{train,val,test}_kp_v1.json
+```
+
+Frontal side names of the clavicles, hemidiaphragms and visible lungs are reassigned by position
+(PAXRay++ is inconsistent there); the counts are recorded in each file's `info.side_relabel`.
+
+## Training
+
+<!-- filled in once the standalone training pipeline is verified -->
+```bash
+cxrlm-train --paxray-root /data/paxraypp --out runs/joint_dense
+```
+
+## Evaluation
+
+```bash
+cxrlm-predict --gt /data/paxraypp/annotations/test_kp_v1.json --image-root /data/paxraypp --out-dir preds/test
+cxrlm-evaluate --gt /data/paxraypp/annotations/test_kp_v1.json \
+    --keypoints preds/test/keypoints.json --segm preds/test/segm.json --bootstrap 1000
+```
+
+Results of the released model on PAXRay++ test (silver labels; 95% bootstrap CI over images):
+
+| Model | OKS-AP | PCK@0.1 | Mask AP |
+|---|---|---|---|
+| Joint dense (this release) | 36.8 [36.2, 37.7] | 80.6 [79.7, 81.4] | 52.4 [51.7, 53.3] |
+
+OKS-AP is the COCO keypoint AP per structure (uniform OKS σ = 0.05), averaged over structures.
+PCK@0.1 counts a landmark as correct within 0.1 of the diagonal of its structure's ground-truth
+box (a missed structure counts as wrong). Mask AP is COCO mask AP over the 177 structures.
+
+## License
+
+Code: MIT (see `LICENSE`). Model weights: <!-- weights licence --> The encoder is initialised from
+[RAD-DINO](https://huggingface.co/microsoft/rad-dino) (MIT, research use). Labels derived from
+PAXRay++ are subject to the PAXRay++ terms.
+
+## Citation
+
+```bibtex
+@inproceedings{seibold2026landmarks,
+  title     = {Semantic landmark detection in chest radiographs},
+  author    = {Seibold, Constantin and Havemann, Nils and Vinu, David and Fink, Matthias A.},
+  booktitle = {IEEE International Symposium on Biomedical Imaging (ISBI)},
+  year      = {2026}
+}
+```
