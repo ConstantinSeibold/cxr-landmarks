@@ -3,7 +3,7 @@
 Semantic anatomical landmarks for chest radiographs: a clinically curated landmark vocabulary, the
 geometric rules that turn anatomy masks into landmark labels, and a joint mask + landmark model.
 
-Code, definitions and weights for the ISBI 2026 paper *Semantic landmark detection in chest
+Code, definitions and weights for the ISBI 2027 paper *Semantic landmark detection in chest
 radiographs* (Seibold, Havemann, Vinu, Fink).
 
 > **Research use only.** The model is not a medical device and must not be used for clinical decisions.
@@ -15,7 +15,8 @@ radiographs* (Seibold, Havemann, Vinu, Fink).
 | **Landmark vocabulary** (`src/cxrlandmarks/vocab/`) | 132 landmark definitions on the 177 PAXRay++ structures, curated by two reviewers with a medical background and a board-certified radiologist; 311 view-specific class–landmark pairs (203 frontal, 108 lateral), at most 13 per structure. Human-readable tables: `landmarks.csv` (definitions, rules, review outcome, literature), `groups.csv` (clinical groups), `references.csv` (53 sources). |
 | **Landmark rules** (`src/cxrlandmarks/rules/`) | The geometric rules (extreme, contact, ridge/centerline and centroid points on anatomy masks) that produce the silver labels from PAXRay++ masks. This is the exact version used for the paper; regenerating the test and val splits reproduces the paper's label files byte for byte. |
 | **Joint dense model** (`src/cxrlandmarks/model.py`) | RAD-DINO ViT-B/14 encoder shared by a landmark-heatmap decoder (one channel per class–landmark pair) and a mask decoder (one channel per structure). |
-| **Training and evaluation** | Standalone training pipeline (no detectron2) and the metrics of the paper (macro OKS-AP, PCK@0.1, COCO mask AP, paired bootstrap CIs over images). |
+| **Training and evaluation** | Standalone training pipeline (no detectron2) and the metrics of the paper (macro OKS-AP, PCK@0.1, MRE, COCO mask AP, paired bootstrap CIs over images). |
+| **Gold-standard tools** (`src/cxrlandmarks/eval/gold.py`) | Builds the real-CXR gold standard (mean of two readers, per-landmark inter-reader tolerances) from its PhysioNet release and evaluates against it. The annotations themselves are MIMIC-CXR-derived and are distributed only through PhysioNet. |
 
 ## Installation
 
@@ -58,7 +59,7 @@ curation records (reviewer ratings, rule revisions) are in `curation/`.
 
 ## Silver labels from PAXRay++
 
-The rules need anatomy masks. PAXRay++ (<!-- link to the PAXRay++ download -->) provides
+The rules need anatomy masks. PAXRay++ ([CXAS repository](https://github.com/ConstantinSeibold/ChestXRayAnatomySegmentation)) provides
 masks of 177 structures projected from CT, on which the rules yield landmarks for every image:
 
 ```bash
@@ -93,19 +94,40 @@ OKS-AP is the COCO keypoint AP per structure (uniform OKS σ = 0.05), averaged o
 PCK@0.1 counts a landmark as correct within 0.1 of the diagonal of its structure's ground-truth
 box (a missed structure counts as wrong). Mask AP is COCO mask AP over the 177 structures.
 
+## Gold standard on real CXRs
+
+Two readers annotated nine landmark groups (27 class–landmark pairs) on 50 MIMIC-CXR images (30 frontal,
+20 lateral). Because the images and anything keyed to them fall under the MIMIC-CXR data use agreement,
+the annotations are released on PhysioNet (credentialed access): <!-- PhysioNet DOI -->. With that
+release unpacked:
+
+```bash
+cxrlm-build-gold --release /data/cxr-landmarks-gold --out gold_kp.json --sigma-out sigma.csv
+python scripts/prepare_gold_images.py --release /data/cxr-landmarks-gold \
+    --mimic-cxr-jpg /data/mimic-cxr-jpg/2.1.0 --out /data/gold_512      # 512x512 reading frame
+cxrlm-predict --gt gold_kp.json --image-root /data/gold_512 --out-dir preds/gold
+cxrlm-evaluate --gold --gt gold_kp.json --keypoints preds/gold/keypoints.json --bootstrap 1000
+```
+
+`--gold` scores only the (image, structure) pairs the readers annotated, uses each landmark's
+inter-reader tolerance σ (stored in `gold_kp.json`) in the OKS, and adds the mean radial error.
+Paper result of the released model: OKS-AP 51.1 [48.1, 56.7], PCK@0.1 76.7 [73.0, 80.1],
+MRE 14.2 px [12.5, 16.4] (512 × 512); one reader scored against the other reaches 50.6 OKS-AP.
+
 ## License
 
-Code: MIT (see `LICENSE`). Model weights: <!-- weights licence --> The encoder is initialised from
+Code: MIT (see `LICENSE`). Model weights and silver labels: CC BY-NC-SA 4.0, as they are derived from
+PAXRay++ (CC BY-NC-SA 4.0) <!-- TODO confirm -->. The encoder is initialised from
 [RAD-DINO](https://huggingface.co/microsoft/rad-dino) (MIT, research use). Labels derived from
 PAXRay++ are subject to the PAXRay++ terms.
 
 ## Citation
 
 ```bibtex
-@inproceedings{seibold2026landmarks,
+@inproceedings{seibold2027landmarks,
   title     = {Semantic landmark detection in chest radiographs},
   author    = {Seibold, Constantin and Havemann, Nils and Vinu, David and Fink, Matthias A.},
   booktitle = {IEEE International Symposium on Biomedical Imaging (ISBI)},
-  year      = {2026}
+  year      = {2027}
 }
 ```

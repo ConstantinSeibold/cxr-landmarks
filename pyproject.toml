@@ -30,6 +30,7 @@ cxrlm-make-labels = "cxrlandmarks.rules.export:main"
 cxrlm-train = "cxrlandmarks.train:main"
 cxrlm-predict = "cxrlandmarks.predict:main"
 cxrlm-evaluate = "cxrlandmarks.eval.cli:main"
+cxrlm-build-gold = "cxrlandmarks.eval.gold:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

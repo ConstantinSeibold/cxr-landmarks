@@ -9,6 +9,10 @@ Bootstrap CIs: an exact re-implementation of pycocotools' keypoint evaluation fo
 (at most one GT per image x class; maxDets 20; area range "all"), factored so that resampling
 images is a reweighting of a fixed, score-sorted detection list; with unit weights it reproduces
 COCOeval exactly (checked in `bootstrap`).
+
+Gold standard (real CXRs): per-landmark tolerances from the categories' "oks_sigmas" (inter-reader
+sigma; pass them as `sigmas`), and sparse annotations, so `pck_weighted(..., skip_absent=True)`
+skips a class that a resample does not contain instead of scoring it 0.
 """
 from __future__ import annotations
 
@@ -118,8 +122,15 @@ def _oks_ignored(dxy, gt_ann, sigma=0.05):
     return float(np.exp(-e).sum() / e.shape[0])
 
 
-def prepare(preds, gt, img_index):
-    """-> per class: dict(img (n,), tp (T, n), ig (T, n), gt_img (m,)) in COCO's order."""
+def class_sigmas(gt: dict) -> dict | None:
+    """Per-class OKS sigma vectors from the categories' "oks_sigmas", or None (uniform 0.05)."""
+    s = {c["id"]: np.asarray(c["oks_sigmas"], dtype=float) for c in gt["categories"] if c.get("oks_sigmas")}
+    return s or None
+
+
+def prepare(preds, gt, img_index, sigmas: dict | None = None):
+    """-> per class: dict(img (n,), tp (T, n), ig (T, n), gt_img (m,)) in COCO's order.
+    sigmas: class -> per-landmark sigma vector (default: uniform 0.05)."""
     gts = {(a["image_id"], a["category_id"]): a for a in gt["annotations"]}
     by = defaultdict(list)
     for p in preds:
@@ -127,6 +138,7 @@ def prepare(preds, gt, img_index):
     K = {c["id"] for c in gt["categories"] if c.get("keypoints")}
     out = {}
     for c in sorted(K):
+        sg = sigmas[c] if sigmas and c in sigmas else 0.05
         # no detections for a class: loadRes copies all categories, so COCOeval still
         # evaluates it and scores 0 AP (not -1) -> keep it with an empty detection list
         imgs = sorted({k[0] for k in by if k[1] == c} | {k[0] for k in gts if k[1] == c})
@@ -147,7 +159,7 @@ def prepare(preds, gt, img_index):
                 ig = np.zeros(len(THRS), bool)
                 if g is not None:
                     dxy = np.asarray(d["keypoints"], dtype=float).reshape(-1, 3)[:, :2]
-                    o = _oks_ignored(dxy, g) if not (gk[:, 2] > 0).any() else _oks(dxy, gk, g["area"])
+                    o = _oks_ignored(dxy, g, sg) if not (gk[:, 2] > 0).any() else _oks(dxy, gk, g["area"], sg)
                     hit = (~matched) & (o >= THRS)
                     matched |= hit
                     tp, ig = (hit & (not g_ign)), (hit & bool(g_ign))
@@ -215,7 +227,40 @@ def pck_parts(preds, gt, img_index, alpha=0.1):
     return {c: tuple(np.asarray(x) for x in L) for c, L in parts.items()}
 
 
-def pck_weighted(parts, W):
-    return 100.0 * np.mean([(W[:, i] * h).sum(1) / np.maximum((W[:, i] * n).sum(1), 1e-12)
-                            for i, h, n in parts.values()], 0)
+def pck_weighted(parts, W, skip_absent: bool = False):
+    per = []
+    for i, h, n in parts.values():
+        den = (W[:, i] * n).sum(1)
+        r = (W[:, i] * h).sum(1) / np.maximum(den, 1e-12)
+        per.append(np.where(den > 0, r, np.nan) if skip_absent else r)
+    return 100.0 * (np.nanmean(per, 0) if skip_absent else np.mean(per, 0))
+
+
+def mre_parts(preds, gt, img_index):
+    """-> (img (m,), summed error (m,), n landmarks with a prediction (m,), n visible (m,)) per annotation;
+    error in pixels between the top-scoring prediction and the GT, over visible landmarks."""
+    best = {}
+    for p in preds:
+        k = (p["image_id"], p["category_id"])
+        if k not in best or p["score"] > best[k]["score"]:
+            best[k] = p
+    img, dist, n, nv = [], [], [], []
+    for a in gt["annotations"]:
+        if a.get("num_keypoints", 0) == 0:
+            continue
+        g = np.asarray(a["keypoints"], dtype=float).reshape(-1, 3)
+        v = g[:, 2] > 0
+        p = best.get((a["image_id"], a["category_id"]))
+        img.append(img_index[a["image_id"]]); nv.append(int(v.sum()))
+        if p is None:
+            dist.append(0.0); n.append(0)
+            continue
+        d = np.hypot(*(np.asarray(p["keypoints"]).reshape(-1, 3)[:, :2] - g[:, :2]).T)[v]
+        dist.append(float(d.sum())); n.append(int(v.sum()))
+    return tuple(np.asarray(x) for x in (img, dist, n, nv))
+
+
+def mre_weighted(parts, W):
+    i, d, n, _ = parts
+    return (W[:, i] * d).sum(1) / np.maximum((W[:, i] * n).sum(1), 1e-12)
 
