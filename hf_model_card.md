@@ -1,5 +1,5 @@
 ---
-license: cc-by-nc-sa-4.0   # TODO confirm (inherits PAXRay++)
+license: cc-by-nc-sa-4.0
 library_name: pytorch
 pipeline_tag: keypoint-detection
 tags:
@@ -13,7 +13,7 @@ base_model: microsoft/rad-dino
 # cxr-landmarks: joint dense model (v1)
 
 Predicts 311 semantically named anatomical landmarks and masks of 177 anatomical structures on
-frontal and lateral chest radiographs. Code, landmark definitions and training: <!-- GitHub URL -->.
+frontal and lateral chest radiographs. Code, landmark definitions and training: https://github.com/ConstantinSeibold/cxr-landmarks.
 
 > **Research use only.** Not a medical device; not for clinical decisions.
 

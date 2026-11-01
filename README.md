@@ -21,7 +21,7 @@ radiographs* (Seibold, Havemann, Vinu, Fink).
 ## Installation
 
 ```bash
-git clone https://github.com/<org>/cxr-landmarks && cd cxr-landmarks
+git clone https://github.com/ConstantinSeibold/cxr-landmarks && cd cxr-landmarks
 pip install -e .
 ```
 Python ≥ 3.10, PyTorch ≥ 2.1. The RAD-DINO encoder is downloaded from the Hugging Face Hub (`microsoft/rad-dino`).
@@ -117,7 +117,7 @@ MRE 14.2 px [12.5, 16.4] (512 × 512); one reader scored against the other reach
 ## License
 
 Code: MIT (see `LICENSE`). Model weights and silver labels: CC BY-NC-SA 4.0, as they are derived from
-PAXRay++ (CC BY-NC-SA 4.0) <!-- TODO confirm -->. The encoder is initialised from
+PAXRay++ (CC BY-NC-SA 4.0). The encoder is initialised from
 [RAD-DINO](https://huggingface.co/microsoft/rad-dino) (MIT, research use). Labels derived from
 PAXRay++ are subject to the PAXRay++ terms.
 
