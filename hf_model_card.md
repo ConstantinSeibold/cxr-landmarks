@@ -1,5 +1,5 @@
 ---
-license: cc-by-nc-sa-4.0
+license: mit
 library_name: pytorch
 pipeline_tag: keypoint-detection
 tags:
