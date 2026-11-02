@@ -1,10 +1,10 @@
-# cxr-landmarks
+# Semantic landmark detection in chest radiographs
 
 Semantic anatomical landmarks for chest radiographs: a clinically curated landmark vocabulary, the
 geometric rules that turn anatomy masks into landmark labels, and a joint mask + landmark model.
 
-Code, definitions and weights for the ISBI 2027 paper *Semantic landmark detection in chest
-radiographs* (Seibold, Havemann, Vinu, Fink).
+Code, definitions and weights for the paper *Semantic landmark detection in chest radiographs*
+(Seibold, Havemann, Vinu, Fink), currently under review.
 
 > **Research use only.** The model is not a medical device and must not be used for clinical decisions.
 
@@ -124,10 +124,9 @@ PAXRay++ are subject to the PAXRay++ terms.
 ## Citation
 
 ```bibtex
-@inproceedings{seibold2027landmarks,
-  title     = {Semantic landmark detection in chest radiographs},
-  author    = {Seibold, Constantin and Havemann, Nils and Vinu, David and Fink, Matthias A.},
-  booktitle = {IEEE International Symposium on Biomedical Imaging (ISBI)},
-  year      = {2027}
+@unpublished{seibold2026landmarks,
+  title  = {Semantic landmark detection in chest radiographs},
+  author = {Seibold, Constantin and Havemann, Nils and Vinu, David and Fink, Matthias A.},
+  year   = {2026}
 }
 ```
