@@ -7,15 +7,15 @@ from __future__ import annotations
 
 import argparse
 import csv
+from collections import Counter
 from pathlib import Path
 
 import matplotlib
 
 matplotlib.use("Agg")
+import matplotlib.font_manager as fm  # noqa: E402
 import matplotlib.patheffects as pe  # noqa: E402
 import matplotlib.pyplot as plt  # noqa: E402
-import numpy as np  # noqa: E402
-from matplotlib.colors import to_rgb  # noqa: E402
 from pycocotools import mask as mask_util  # noqa: E402
 
 from cxrlandmarks.predict import LandmarkPredictor, load_image  # noqa: E402
@@ -30,17 +30,27 @@ SHORT = {"acromioclavicular_clavicular": "AC joint", "sternoclavicular_clavicula
          "costophrenic_pulmonary": "CP angle", "ctr_thorax": "thorax (CTR)", "posterior_costophrenic": "posterior sulcus",
          "anterior_costophrenic": "anterior sulcus", "sternodiaphragmatic_vertex": "sterno-diaphragmatic",
          "left_main_bronchus": "L main bronchus", "right_main_bronchus": "R main bronchus"}
-MASK_COLORS = ["#ffe119", "#4363d8", "#3cb44b", "#f58231", "#42d4f4", "#f032e6", "#bfef45", "#fabed4", "#dcbeff"]
-COLORS = ["#e6194b", "#3cb44b", "#4363d8", "#f58231", "#911eb4", "#42d4f4", "#f032e6", "#9a6324", "#000075"]
+# Region colours of the paper's Fig. 1 and Fig. 2: a landmark takes the region of its group, a structure the
+# region most of its landmarks belong to.
+REGION_COLOR = {"Heart & mediastinum": "#e76f51", "Vessels": "#b5179e", "Airway": "#e9c46a",
+                "Devices / lines": "#f4a261", "Lungs": "#2a9d8f", "Pleura & diaphragm": "#264653",
+                "Bones": "#7b8cad", "Soft tissue": "#c9a0a6", "Abdomen / other": "#9aa0a6", "Meta": "#d5d8dc"}
+GROUP_REGION = {"G01": "Heart & mediastinum", "G02": "Pleura & diaphragm", "G03": "Heart & mediastinum",
+                "G04": "Pleura & diaphragm", "G05": "Lungs", "G06": "Lungs", "G07": "Heart & mediastinum",
+                "G08": "Heart & mediastinum", "G09": "Vessels", "G10": "Vessels", "G11": "Vessels", "G12": "Airway",
+                "G13": "Airway", "G14": "Devices / lines", "G15": "Devices / lines", "G16": "Heart & mediastinum",
+                "G17": "Bones", "G18": "Bones", "G19": "Bones", "G20": "Bones", "G21": "Lungs", "G22": "Lungs",
+                "G23": "Soft tissue", "G24": "Bones", "G25": "Vessels", "G26": "Abdomen / other", "G27": "Meta"}
 
 
-def group_of() -> dict[tuple[str, str, str], str]:
-    g = {}
+def group_of() -> tuple[dict[tuple[str, str, str], str], dict[str, str]]:
+    g, regions = {}, {}
     for r in csv.DictReader(open(VOCAB / "landmarks.csv")):
         for view in ("frontal", "lateral"):
             for c in filter(None, (s.strip() for s in r[f"classes_{view}"].split(";"))):
                 g[(view, c, r["landmark"])] = r["group"]
-    return g
+                regions.setdefault(c, Counter())[GROUP_REGION[r["group"]]] += 1
+    return g, {c: REGION_COLOR[cnt.most_common(1)[0][0]] for c, cnt in regions.items()}
 
 
 def label(cls: str, lm: str) -> str | None:
@@ -71,9 +81,14 @@ def main() -> None:
     ap.add_argument("--frontal", required=True)
     ap.add_argument("--lateral", required=True)
     ap.add_argument("--out", required=True, type=Path)
+    ap.add_argument("--font-dir", type=Path, help="optional .ttf folder (the paper figures use Carlito)")
     a = ap.parse_args()
+    if a.font_dir:
+        for f in a.font_dir.glob("*.ttf"):
+            fm.fontManager.addfont(str(f))
+        plt.rcParams["font.family"] = "Carlito"
     pred = LandmarkPredictor.from_pretrained(a.weights, device="cpu")
-    gmap = group_of()
+    gmap, cls_color = group_of()
     rows = [("frontal", a.frontal), ("lateral", a.lateral)]
     panels = [(view, path, g) for view, path in rows for g in PANELS[view]]
     ncol = 3
@@ -88,19 +103,19 @@ def main() -> None:
         pts = [lm for lm in out["landmarks"] if gmap.get((view, lm["class"], lm["landmark"])) == gid]
         x0, x1, y1, y0 = crop(pts, *img.shape[:2])
         masks = {st["class"]: st["mask_rle"] for st in out["structures"]}
-        decoded = [(cls, mask_util.decode(masks[cls]).astype(bool))
+        decoded = [(cls, mask_util.decode(masks[cls]).astype(float))
                    for cls in sorted({lm["class"] for lm in pts} & masks.keys())]
-        for i, (cls, m) in sorted(enumerate(decoded), key=lambda t: -t[1][1].sum()):  # small structures on top
-            overlay = np.zeros((*img.shape[:2], 4))
-            overlay[m] = (*to_rgb(MASK_COLORS[i % len(MASK_COLORS)]), 0.3)
-            ax.imshow(overlay)
+        for cls, m in sorted(decoded, key=lambda t: -t[1].sum()):  # small structures on top
+            col = cls_color.get(cls, "#9aa0a6")
+            ax.contourf(m, levels=[0.5, 1.5], colors=[col], alpha=0.18)
+            ax.contour(m, levels=[0.5], colors=[col], linewidths=1.0)
         ax.set_xlim(x0, x1)
         ax.set_ylim(y1, y0)
         placed = []
         if True:
-            for k, lm in enumerate(pts):
-                col = COLORS[k % len(COLORS)]
-                ax.plot(lm["x"], lm["y"], "o", ms=4 if "limb" in lm["landmark"] else 7, mfc=col, mec="white", mew=0.8)
+            for lm in pts:
+                col = REGION_COLOR[GROUP_REGION[gid]]
+                ax.plot(lm["x"], lm["y"], "o", ms=4 if "limb" in lm["landmark"] else 7, mfc=col, mec="white", mew=1.0, zorder=4)
                 text = label(lm["class"], lm["landmark"])
                 if text is None:
                     continue
@@ -113,9 +128,9 @@ def main() -> None:
                 placed.append((lm["x"], ty, left))
                 ax.annotate(text, (lm["x"], lm["y"]), xytext=(lm["x"] + (-0.02 if left else 0.02) * side, ty),
                             ha="right" if left else "left", va="center",
-                            textcoords="data", fontsize=9, color=col,
-                            path_effects=[pe.withStroke(linewidth=2, foreground="white")])
-            ax.set_title(f"{title} ({view})", fontsize=11)
+                            textcoords="data", fontsize=10, color="#202124",
+                            path_effects=[pe.withStroke(linewidth=2.5, foreground="white")])
+            ax.set_title(f"{title} ({view})", fontsize=13, fontweight="bold", color="#202124")
     fig.tight_layout(h_pad=0.6, w_pad=0.4)
     a.out.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(a.out, dpi=130, bbox_inches="tight")

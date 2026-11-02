@@ -9,7 +9,7 @@ over the predicted masks of the structures they are defined on. Frontal: an unse
 radiograph from NIH ChestX-ray14 (NIH Clinical Center). Lateral: a PAXRay++ test image (CT
 projection), as no openly licensed real lateral radiograph was at hand. Small unlabelled points are
 the limb points of angles and the remaining vertebral corners. Generated with
-`scripts/make_readme_figure.py`.*
+`scripts/make_readme_figure.py` (colours by region, as in the paper).*
 
 Code, definitions and weights for the paper *Semantic landmark detection in chest radiographs*
 (Seibold, Havemann, Vinu, Fink), currently under review.
