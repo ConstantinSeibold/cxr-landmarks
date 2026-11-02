@@ -15,20 +15,18 @@
   Frontal: an unseen NIH ChestX-ray14 radiograph (NIH Clinical Center). Lateral: a PAXRay++ test image (CT projection).
 </sub></p>
 
-Clinical readouts on chest radiographs — the cardiothoracic ratio, costophrenic angles, device-tip
-positions — are defined by anatomical landmarks. This repository provides a clinically curated set
-of **named** CXR landmarks, the geometric rules that derive them from anatomy masks, and a model that
-predicts masks and landmarks jointly. Code, definitions and weights accompany the paper
-*Semantic landmark detection in chest radiographs* (Seibold, Havemann, Vinu, Fink), currently under review.
+Clinical readouts on chest radiographs, such as the cardiothoracic ratio, the costophrenic angles or
+device-tip positions, are defined by anatomical landmarks. This repository provides a clinically
+curated set of named landmarks, the geometric rules that derive them from anatomy masks, and a model
+that predicts masks and landmarks jointly. It accompanies the paper *Semantic landmark detection in
+chest radiographs* (Seibold, Havemann, Vinu, Fink), currently under review.
 
-- **Named, not indexed.** Every point has an anatomical meaning (e.g. *carina*, *left hemidiaphragm
-  dome*, *T6 anterosuperior corner*), so measurements and findings can refer to it directly.
-- **Clinically curated.** 317 literature-grounded candidates in 27 clinical groups, rated by two
-  reviewers with a medical background; a board-certified radiologist decided the final 132.
-- **Trained without manual labels.** Geometric rules on the CT-derived PAXRay++ masks give silver
-  labels for all 177 structures, frontal and lateral.
-- **Evaluated on real radiographs.** A double-read gold standard on MIMIC-CXR with per-landmark
-  inter-reader tolerances (PhysioNet release in preparation).
+Each landmark has an anatomical name, such as the carina or the left hemidiaphragm dome, rather
+than an index along a contour. The 132 definitions were selected from 317 candidates from the
+clinical literature by two reviewers with a medical background and a board-certified radiologist.
+The model is trained on silver labels that the rules produce from the CT-derived PAXRay++ masks,
+and is evaluated on a double-read gold standard on MIMIC-CXR with per-landmark inter-reader
+tolerances (PhysioNet release in preparation).
 
 > **Research use only.** The model is not a medical device and must not be used for clinical decisions.
 
