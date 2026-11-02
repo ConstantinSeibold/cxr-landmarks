@@ -1,7 +1,8 @@
 """README figure: predicted named landmarks of selected clinical groups, one panel per group.
 
     python scripts/make_readme_figure.py --weights weights/joint_dense_v1 \
-        --frontal nih_39140.png --lateral paxray_lateral.png --out assets/examples.png
+        --frontal chestxdet/test/41460.png --lateral paxraypp/images_patlas/1010a_lateral.png \
+        --out assets/examples.png --font-dir <folder with Carlito .ttf>
 """
 from __future__ import annotations
 
