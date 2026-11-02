@@ -1,10 +1,6 @@
 <h1 align="center">Semantic landmark detection in chest radiographs</h1>
 
 <p align="center">
-  <b>132 named anatomical landmarks</b> &nbsp;·&nbsp; <b>311 class–landmark pairs on 177 structures</b> &nbsp;·&nbsp; <b>one model for masks and landmarks</b>
-</p>
-
-<p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/code%20%26%20weights-MIT-2a9d8f" alt="License: MIT"></a>
   <img src="https://img.shields.io/badge/python-%E2%89%A53.10-7b8cad" alt="Python 3.10+">
   <img src="https://img.shields.io/badge/PyTorch-%E2%89%A52.1-e76f51" alt="PyTorch 2.1+">
