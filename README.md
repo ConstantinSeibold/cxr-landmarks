@@ -1,20 +1,52 @@
-# Semantic landmark detection in chest radiographs
+<h1 align="center">Semantic landmark detection in chest radiographs</h1>
 
-Semantic anatomical landmarks for chest radiographs: a clinically curated landmark vocabulary, the
-geometric rules that turn anatomy masks into landmark labels, and a joint mask + landmark model.
+<p align="center">
+  <b>132 named anatomical landmarks</b> &nbsp;·&nbsp; <b>311 class–landmark pairs on 177 structures</b> &nbsp;·&nbsp; <b>one model for masks and landmarks</b>
+</p>
 
-![Predicted named landmarks of nine clinical landmark groups](assets/examples.png)
-*Predictions of the released model, one panel per landmark group (selection): named landmarks
-over the predicted masks of the structures they are defined on. Frontal: an unseen
-radiograph from NIH ChestX-ray14 (NIH Clinical Center). Lateral: a PAXRay++ test image (CT
-projection), as no openly licensed real lateral radiograph was at hand. Small unlabelled points are
-the limb points of angles and the remaining vertebral corners. Generated with
-`scripts/make_readme_figure.py` (colours by region, as in the paper).*
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/code%20%26%20weights-MIT-2a9d8f" alt="License: MIT"></a>
+  <img src="https://img.shields.io/badge/python-%E2%89%A53.10-7b8cad" alt="Python 3.10+">
+  <img src="https://img.shields.io/badge/PyTorch-%E2%89%A52.1-e76f51" alt="PyTorch 2.1+">
+  <img src="https://img.shields.io/badge/encoder-RAD--DINO-e9c46a" alt="RAD-DINO encoder">
+</p>
 
-Code, definitions and weights for the paper *Semantic landmark detection in chest radiographs*
-(Seibold, Havemann, Vinu, Fink), currently under review.
+<p align="center">
+  <img src="assets/hero.png" width="100%" alt="Predicted named landmarks on a frontal and a lateral chest radiograph">
+</p>
+<p align="center"><sub>
+  Predictions of the released model, coloured by anatomical region, over its predicted mask outlines.
+  Frontal: an unseen NIH ChestX-ray14 radiograph (NIH Clinical Center). Lateral: a PAXRay++ test image (CT projection).
+</sub></p>
+
+Clinical readouts on chest radiographs — the cardiothoracic ratio, costophrenic angles, device-tip
+positions — are defined by anatomical landmarks. This repository provides a clinically curated set
+of **named** CXR landmarks, the geometric rules that derive them from anatomy masks, and a model that
+predicts masks and landmarks jointly. Code, definitions and weights accompany the paper
+*Semantic landmark detection in chest radiographs* (Seibold, Havemann, Vinu, Fink), currently under review.
+
+- **Named, not indexed.** Every point has an anatomical meaning (e.g. *carina*, *left hemidiaphragm
+  dome*, *T6 anterosuperior corner*), so measurements and findings can refer to it directly.
+- **Clinically curated.** 317 literature-grounded candidates in 27 clinical groups, rated by two
+  reviewers with a medical background; a board-certified radiologist decided the final 132.
+- **Trained without manual labels.** Geometric rules on the CT-derived PAXRay++ masks give silver
+  labels for all 177 structures, frontal and lateral.
+- **Evaluated on real radiographs.** A double-read gold standard on MIMIC-CXR with per-landmark
+  inter-reader tolerances (PhysioNet release in preparation).
 
 > **Research use only.** The model is not a medical device and must not be used for clinical decisions.
+
+<details>
+<summary><b>More examples: one panel per landmark group</b></summary>
+<br>
+<p align="center"><img src="assets/examples.png" width="90%" alt="Predicted landmarks per clinical group"></p>
+<p align="center"><sub>
+  Named landmarks of nine groups over the predicted masks of the structures they are defined on.
+  Small unlabelled points are angle limbs and further vertebral corners.
+</sub></p>
+</details>
+
+The figures are generated with `scripts/make_readme_hero.py` and `scripts/make_readme_figure.py`.
 
 ## What is in this repository
 
