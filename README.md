@@ -3,6 +3,14 @@
 Semantic anatomical landmarks for chest radiographs: a clinically curated landmark vocabulary, the
 geometric rules that turn anatomy masks into landmark labels, and a joint mask + landmark model.
 
+![Predicted named landmarks of nine clinical landmark groups](assets/examples.png)
+*Predictions of the released model, one panel per landmark group (selection): named landmarks
+over the predicted masks of the structures they are defined on. Frontal: an unseen
+radiograph from NIH ChestX-ray14 (NIH Clinical Center). Lateral: a PAXRay++ test image (CT
+projection), as no openly licensed real lateral radiograph was at hand. Small unlabelled points are
+the limb points of angles and the remaining vertebral corners. Generated with
+`scripts/make_readme_figure.py`.*
+
 Code, definitions and weights for the paper *Semantic landmark detection in chest radiographs*
 (Seibold, Havemann, Vinu, Fink), currently under review.
 
